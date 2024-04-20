@@ -1,0 +1,12 @@
+.product-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    color: #133839;
+}
+
+.product-container h1{
+    margin-top: 7rem;
+}

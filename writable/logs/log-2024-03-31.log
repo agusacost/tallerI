@@ -1,0 +1,55 @@
+CRITICAL - 2024-03-31 20:30:43 --> Undefined variable $valorStock
+in APPPATH\Views\Products\listar.php on line 41.
+ 1 APPPATH\Views\Products\listar.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valorStock', 'APPPATH\\Views\\Products\\listar.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(18): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-31 20:30:44 --> Undefined variable $valorStock
+in APPPATH\Views\Products\listar.php on line 41.
+ 1 APPPATH\Views\Products\listar.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valorStock', 'APPPATH\\Views\\Products\\listar.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(18): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-31 20:31:56 --> Undefined variable $valorStock
+in APPPATH\Views\Products\listar.php on line 41.
+ 1 APPPATH\Views\Products\listar.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valorStock', 'APPPATH\\Views\\Products\\listar.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(18): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-31 20:31:58 --> Undefined variable $valorStock
+in APPPATH\Views\Products\listar.php on line 41.
+ 1 APPPATH\Views\Products\listar.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valorStock', 'APPPATH\\Views\\Products\\listar.php', 41)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(18): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-31 20:32:22 --> Undefined variable $valorStock
+in APPPATH\Views\Products\listar.php on line 28.
+ 1 APPPATH\Views\Products\listar.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $valorStock', 'APPPATH\\Views\\Products\\listar.php', 28)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(18): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

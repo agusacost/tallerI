@@ -1,0 +1,32 @@
+CRITICAL - 2024-04-01 19:20:58 --> unlink(../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png): No such file or directory
+in APPPATH\Controllers\Product.php on line 57.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png): No such file or directory', 'APPPATH\\Controllers\\Product.php', 57)
+ 2 APPPATH\Controllers\Product.php(57): unlink('../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->borrar('22')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-01 19:21:04 --> unlink(../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png): No such file or directory
+in APPPATH\Controllers\Product.php on line 57.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png): No such file or directory', 'APPPATH\\Controllers\\Product.php', 57)
+ 2 APPPATH\Controllers\Product.php(57): unlink('../../app/assets/img1711845258_fa34fe980fa33e4bd0ae.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->borrar('22')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-01 19:24:22 --> unlink(../../app/assets/img1711999425_0da9f2f2e702cd013b93.png): No such file or directory
+in APPPATH\Controllers\Product.php on line 57.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(../../app/assets/img1711999425_0da9f2f2e702cd013b93.png): No such file or directory', 'APPPATH\\Controllers\\Product.php', 57)
+ 2 APPPATH\Controllers\Product.php(57): unlink('../../app/assets/img1711999425_0da9f2f2e702cd013b93.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->borrar('24')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-04-01 19:29:58 --> unlink(../../app/assets/img/1711999425_0da9f2f2e702cd013b93.png): No such file or directory
+in APPPATH\Controllers\Product.php on line 58.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'unlink(../../app/assets/img/1711999425_0da9f2f2e702cd013b93.png): No such file or directory', 'APPPATH\\Controllers\\Product.php', 58)
+ 2 APPPATH\Controllers\Product.php(58): unlink('../../app/assets/img/1711999425_0da9f2f2e702cd013b93.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->borrar('24')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

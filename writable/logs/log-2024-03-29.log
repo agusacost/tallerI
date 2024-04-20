@@ -1,0 +1,97 @@
+CRITICAL - 2024-03-29 20:42:26 --> Array to string conversion
+in APPPATH\Views\Products\listar.php on line 10.
+ 1 APPPATH\Views\Products\listar.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'APPPATH\\Views\\Products\\listar.php', 10)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(11): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 20:48:32 --> Attempt to read property "nombre" on array
+in APPPATH\Views\Products\listar.php on line 11.
+ 1 APPPATH\Views\Products\listar.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre" on array', 'APPPATH\\Views\\Products\\listar.php', 11)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(11): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 20:48:44 --> Undefined array key "nombre"
+in APPPATH\Views\Products\listar.php on line 11.
+ 1 APPPATH\Views\Products\listar.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nombre"', 'APPPATH\\Views\\Products\\listar.php', 11)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(11): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 20:56:03 --> Undefined variable $libro
+in APPPATH\Views\Products\listar.php on line 28.
+ 1 APPPATH\Views\Products\listar.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $libro', 'APPPATH\\Views\\Products\\listar.php', 28)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(11): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 20:57:58 --> syntax error, unexpected token "endforeach", expecting end of file
+in APPPATH\Views\Products\listar.php on line 33.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 3 APPPATH\Controllers\Product.php(11): view('Products/listar', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 22:11:25 --> Attempt to read property "imagen" on array
+in APPPATH\Views\Products\listar.php on line 9.
+ 1 APPPATH\Views\Products\listar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "imagen" on array', 'APPPATH\\Views\\Products\\listar.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(14): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 22:11:26 --> Attempt to read property "imagen" on array
+in APPPATH\Views\Products\listar.php on line 9.
+ 1 APPPATH\Views\Products\listar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "imagen" on array', 'APPPATH\\Views\\Products\\listar.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(14): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 22:11:47 --> Undefined array key "imagen"
+in APPPATH\Views\Products\listar.php on line 9.
+ 1 APPPATH\Views\Products\listar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "imagen"', 'APPPATH\\Views\\Products\\listar.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(14): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-29 22:11:58 --> Attempt to read property "nombre" on array
+in APPPATH\Views\Products\listar.php on line 9.
+ 1 APPPATH\Views\Products\listar.php(9): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "nombre" on array', 'APPPATH\\Views\\Products\\listar.php', 9)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\Products\\listar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Products/listar', [], true)
+ 5 APPPATH\Controllers\Product.php(14): view('Products/listar', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->index()
+ 7 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 8 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

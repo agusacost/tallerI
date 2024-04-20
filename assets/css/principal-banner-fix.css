@@ -1,0 +1,57 @@
+.container {
+	width: 100%; /* Opcional: ajustar el ancho según el diseño */
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 0 20px; /* Añade relleno opcional a los lados del contenedor */
+    box-sizing: border-box;
+}
+
+.banner{
+    position:relative;
+    background-image: linear-gradient(100deg,#00000000, #00000020 ), url('../img/banner.jpg');
+    height: 91vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.content-banner{
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 15rem 2rem;
+}
+
+.content-banner p{
+    color: #133839;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.content-banner h2{
+    color: #133839;
+    font-size: 3.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.content-banner a{
+    margin-top: 2rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #133839;
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    border-radius: 5rem;
+    font-weight: 600;
+}
+
+.content-banner a:hover{
+    background: #A6D7BA;
+}
+
+@media (max-width: 768px) {
+    .banner{
+        padding: 2rem;
+    }
+}

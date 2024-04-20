@@ -1,0 +1,9 @@
+CRITICAL - 2024-03-30 23:32:05 --> There is no data to insert.
+in SYSTEMPATH\BaseModel.php on line 762.
+ 1 SYSTEMPATH\BaseModel.php(762): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH\Model.php(730): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH\Controllers\Product.php(41): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Product->save()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Product))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

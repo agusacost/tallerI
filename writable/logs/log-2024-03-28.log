@@ -1,0 +1,21 @@
+CRITICAL - 2024-03-28 14:21:41 --> Invalid file: "principal.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('principal.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('principal', [], true)
+ 3 APPPATH\Controllers\Home.php(9): view('principal')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-03-28 15:27:22 --> Cannot declare class App\Controllers\Product because the name is already in use
+in APPPATH\Controllers\Products.php on line 8.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2024-03-28 15:44:39 --> Invalid file: "Pages/listar.php"
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('Pages/listar.php')
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('Pages/listar', [], true)
+ 3 APPPATH\Controllers\Home.php(9): view('Pages/listar')
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
