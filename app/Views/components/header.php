@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="assets\css\principal-banner-fix.css">
   <link rel="stylesheet" href="assets\css\principal-categories.css">
   <link rel="stylesheet" href="assets\css\principal-products-fix.css">
+  <link rel="stylesheet" href="assets\css\principal-productos-2.css">
+
   <!-- contact -->
   <link rel="stylesheet" href="assets\css\contact.css">
   <!-- about -->
@@ -44,7 +46,7 @@
       <ul id="menuList" class="menu-list">
         <li><a href="<?= base_url() ?>">Home</a></li>
         <li><a href="<?= base_url('/products') ?>">Productos</a></li>
-        <li><a href="<?= base_url('/about') ?>">Quines somos</a></li>
+        <li><a href="<?= base_url('/about') ?>">Quiénes somos</a></li>
         <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
         <li><a href="<?= base_url('/login') ?>">Login</a></li>
       </ul>

@@ -1,19 +1,20 @@
 <?=$header?>
+<main>
 <section class="container bg-login">
-    <div class="login-box">
-        <h2>Iniciar Sesion</h2>
-        <form action="#" method="post" class="login-form">
-            <div class="username">
-                <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" required>
+    <div class="wrapper">
+        <h1>Inicia sesión</h1>
+        <form action="#">
+            <input type="text" placeholder="Usuario">
+            <input type="password" placeholder="Password">
+            <div class="recover">
+                <a href="#">Olvidaste tu clave?</a>
             </div>
-            <div class="username">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <input type="submit" value="Iniciar"/>
-            <div class="registro"><p>Quiero hacer el <a href="#">registro</a></p></div>
         </form>
+        <button>Iniciar sesión</button>
+        <div class="member">
+            Todavía no te registraste? <a href="#">Registrarse ahora</a>
+        </div>
     </div>
 </section>
+</main>
 <?=$footer?>

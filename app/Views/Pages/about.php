@@ -10,7 +10,7 @@
         </p>
     </div>
     <div class="acerca">
-        <h3>Quienes lo hacen posible</h3>
+        <h3>Quiénes lo hacen posible</h3>
         <p>Colaboramos con distintas campos con los mejores de agricultores a lo largo de toda la provincia de Corrientes, principalmente la zona de Saladas, Bella Vista y Goya. Trabajamos juntos para seleccionar los productos mas saludables, asi llevarlos a tu casa con su mejor sabor y calidad de forma intacta. Nos orgullece ser parte e impulsar con el sector productivo de la provincia que nos vio nacer y constantemente nos impusla a seguir creciendo.</p>
     </div>
     <div class="objetivo">
