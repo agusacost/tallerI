@@ -65,7 +65,7 @@
   <!-- cards -->
   <section>
     <h2 class="text-center">Nuestros seleccionados!</h2>
-  <div class="wrapper">
+  <div class="principal-cards">
     <div class="card">
       <img src="assets/img/mix-secos.jpg" alt="">
       <div class="content">
