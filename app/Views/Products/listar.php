@@ -1,20 +1,21 @@
-<?= $header ?>
 <div class="container">
-  <h1>Stock de productos</h1>
-  <div class="btn btn-primary m-4">
-  <a href="<?= base_url('/addProduct') ?>" class="text-white text-decoration-none">Agregar un producto</a>
+  <div class="table-title">
+    <h1>Stock de productos</h1>
   </div>
-  <table class="table mt-4">
+  <div class="table-button">
+    <a href="<?= base_url('/addProduct') ?>" class="">Agregar un producto</a>
+  </div>
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">id</th>
         <th scope="col">Nombre</th>
         <th scope="col">Descripcion</th>
-        <th scope="col">Producto</th>
-        <th scope="col">Precio unitario</th>
+        <th scope="col">Imagen</th>
+        <th scope="col">Categoria</th>
         <th scope="col">Cantidad</th>
-        <th scope="col">Valor stock</th>
-        <th scope="col">Funcion</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -26,30 +27,28 @@
 
 
           <td>
-            <img src="app\assets\img\<?php echo $producto['img']; ?>" alt="producto" width="100">
+            <img src="app\assets\img\<?php echo $producto['imagen']; ?>" alt="producto" width="100">
           </td>
 
 
-          <td>$<?php echo $producto['precio']; ?></td>
+          <td><?php echo $producto['id_categoria']; ?></td>
           <td><?php echo $producto['cantidad']; ?></td>
-          <td><?php $precioTotal = $producto['precio'] * $producto['cantidad'];
-              echo "$", $precioTotal ?></td>
+          <td>$ <?php echo  $producto['precio']; ?></td>
           <td>
-            <div class="container">
-              <div class="row justify-content-center ">
-                <div class="col-auto">
-                  <a href="<?= base_url('borrar/' . $producto['id']); ?>" class="btn btn-danger">Borrar</a>
-                </div>
-                <div class="col-auto">
-                  <a href="#" class=" btn btn-warning">Editar</a>
-                </div>
+
+            <div class="actions">
+              <div class="edit">
+                <!-- editar -->
+                <a href="#" class=""><i class="fa-solid fa-pen-to-square"></i></a>
+              </div>
+              <div class="delete">
+                <!-- borrar -->
+                <a href="<?= base_url('borrar/' . $producto['id']); ?>" class=""><i class="fa-solid fa-trash"></i></a>
               </div>
             </div>
+
           </td>
         </tr>
       <?php endforeach; ?>
   </table>
 </div>
-
-
-<?= $footer ?>

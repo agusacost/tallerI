@@ -40,12 +40,16 @@ $routes->get('/termsandconditions', 'Home::terms');
 $routes->get('/commerce', 'Home::commerce');
 $routes->get('/politics', 'Home::politics');
 
-//login
-$routes->get('/login', 'Users::login');
+//register
+$routes->get('/register', 'Register::create');
+$routes->post('/register_user', 'Register::formValidation');
+//loguear
+$routes->get('/login', 'Login::login');
+$routes->post('/signin', 'Login::auth');
+$routes->get('/logout', 'Login::logout');
 
 //productos
-$routes->get('/products', 'Product::allProducts');
-$routes->get('/listar', 'Product::index');
+$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']);
 $routes->get('/addProduct', 'Product::add');
 $routes->post('/save', 'Product::save');
 $routes->get('/borrar/(:num)', 'Product::borrar/$1');

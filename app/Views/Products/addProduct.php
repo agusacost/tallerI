@@ -1,7 +1,6 @@
-<?=$header?>
 <div class="container mt-5">
     <h1 class="mb-4">Agregar Producto</h1>
-    <form action="<?=site_url('/save') ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= site_url('/save') ?>" method="post" enctype="multipart/form-data">
         <div class="form-group mb-2">
             <label for="nombre">Nombre del Producto</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -25,4 +24,3 @@
         <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 </div>
-<?=$footer?>

@@ -1,95 +1,176 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
-    background: #FFFCEB;
-    font-family: 'Varela Round', sans-serif;
-    font-style: normal;
-    
-    
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background: #fffceb;
+  font-family: "Varela Round", sans-serif;
+  font-style: normal;
 }
 
-nav{
-    padding: 10px 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #133839;
-    position: relative;
-    height: 90px;
+nav {
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #133839;
+  position: relative;
+  height: 90px;
 }
 
 .logo {
-    color: #A6D7BA;
-    cursor: pointer;
+  color: #a6d7ba;
+  cursor: pointer;
 }
 
-nav ul{
-    display: flex;
-    gap: 3rem;
+nav ul {
+  display: flex;
+  gap: 3rem;
 }
 
-nav ul li{
-    list-style-type: none;
-    margin-bottom: 1rem;
+nav ul li {
+  list-style-type: none;
+  margin-bottom: 1rem;
 }
 
-nav ul li a{
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #A6D7BA;
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #a6d7ba;
 }
 
-a:hover{
-    text-decoration: underline;
-    color:#CF5614
+a:hover {
+  text-decoration: underline;
+  color: #cf5614;
 }
 
-.menu-list{
-    margin-bottom: 20px;
+.menu-list {
+  margin-bottom: 20px;
 }
 
-.menu-icon{
-    display: none;
+.menu-icon {
+  display: none;
 }
 
-.menu-icon i{
-    color: #A6D7BA;
-    font-size: 30px;
-    cursor:pointer;
+.nav-carrito i {
+  color: #a6d7ba;
+  font-size: 25px;
+  cursor: pointer;
 }
 
-@media (max-width:768px) {
-    nav ul{
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        text-align: center;
-        background-color: #133839;
-        gap: 0;
-        overflow: hidden;
-        z-index: 1000;
-    }
+.menu-icon i {
+  color: #a6d7ba;
+  font-size: 30px;
+  cursor: pointer;
+}
 
-    nav ul li{
-        padding: 10px;
-    }
+.dropdown {
+  min-width: 15rem;
+  position: relative;
+  margin: 2rem;
+}
 
-    .menu-icon{
-        display: block;
-    }
+.select-dropdown {
+  background-color: #133839;
+  color: #a6d7ba;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.select-dropdown-clicked {
+  border: 2px #a6d7ba solid;
+}
 
-    #menuList{
-        transition: all 0.5s;
-    }
+.select-dropdown:hover {
+  background-color: #cf5614;
+}
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate {
+  transform: rotate(180deg);
+}
+
+.menu-dropdown {
+  list-style: none;
+  padding: 0.2rem 0.5rem;
+  background-color: #133839;
+  border: 1px #363a43 solid;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2rem);
+  border-radius: 0.5rem;
+  color: #fffceb;
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
+}
+
+.menu-dropdown li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menu-dropdown li:hover {
+  background-color: #cf5614;
+}
+/* js */
+.active {
+  background: #cf5614;
+}
+/* js */
+.menu-open {
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    text-align: center;
+    background-color: #133839;
+    gap: 0;
+    overflow: hidden;
+    z-index: 1000;
+  }
+
+  nav ul li {
+    padding: 10px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  #menuList {
+    transition: all 0.5s;
+  }
 }

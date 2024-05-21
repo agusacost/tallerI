@@ -1,12 +1,81 @@
-.product-container{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: center;
-    color: #133839;
+/* Basic table styles */
+.table-title {
+  margin-top: 2rem;
+  color: #133839;
+  font-size: 2rem;
 }
 
-.product-container h1{
-    margin-top: 7rem;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+}
+
+.table th,
+.table td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 14px;
+}
+
+.table thead th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* Table header (title) */
+.table-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-title h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+/* Add product button */
+.table-button {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.table-button a {
+  padding: 10px 15px;
+  background-color: #133839;
+  color: white;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.table-button a:hover {
+  background-color: #cf5614; /* Darker green on hover */
+}
+
+/* Image styling */
+.table img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Action buttons (edit and delete) */
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions a {
+  color: #133839;
+  margin: 0 5px;
+}
+
+.actions a:hover {
+  color: #cf5614;
 }

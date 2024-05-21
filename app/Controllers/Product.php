@@ -4,26 +4,19 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Products;
+use PhpParser\Node\Stmt\Echo_;
 
 class Product extends Controller
 {
-    public function allProducts(){
-        // $product = new Products();
-        // $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
-
-        $datos['header'] = view('components/header');
-        $datos['footer'] = view('components/footer');
-        return view('Products/productos', $datos);
-    }
     public function index()
     {
         $product = new Products();
         //consulta a bd
         $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
 
-        $datos['header'] = view('components/header');
-        $datos['footer'] = view('components/footer');
-        return view('Products/listar', $datos);
+        echo view('components/header');
+        echo view('Products/listar', $datos);
+        echo view('components/footer');
     }
     public function add()
     {
