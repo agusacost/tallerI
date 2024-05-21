@@ -20,9 +20,9 @@ class Product extends Controller
     }
     public function add()
     {
-        $datos['header'] = view('components/header');
-        $datos['footer'] = view('components/footer');
-        return view('Products/addProduct', $datos);
+        echo view('components/header');
+        echo view('Products/addProduct');
+        echo view('components/footer');
     }
     public function save()
     {
@@ -31,7 +31,7 @@ class Product extends Controller
 
         $nombre = $request->getPost('nombre');
         $descripcion = $request->getPost('descripcion');
-        $img = $request->getFile('img');
+        $img = $request->getFile('imagen');
         $precio = $request->getPost('precio');
         $cantidad = $request->getPost('cantidad');
 
@@ -42,7 +42,7 @@ class Product extends Controller
             $data = [
                 'nombre' => $nombre,
                 'descripcion' => $descripcion,
-                'img' => $newName,
+                'imagen' => $newName,
                 'precio' => $precio,
                 'cantidad' => $cantidad,
             ];
@@ -55,7 +55,7 @@ class Product extends Controller
         $product = new Products();
         $dataProduct = $product->where('id', $id)->first();
 
-        $route = ("app\assets\img/" . $dataProduct['img']);
+        $route = ("app\assets\img/" . $dataProduct['imagen']);
         unlink($route);
 
 

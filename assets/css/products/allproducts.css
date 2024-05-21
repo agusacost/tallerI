@@ -79,3 +79,43 @@
 .actions a:hover {
   color: #cf5614;
 }
+
+/* Media queries for responsive behavior */
+@media (max-width: 768px) {
+  .table-title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .table-title h1 {
+    font-size: 1.2rem;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  .table thead th {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: block;
+  }
+
+  .table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+  .table tbody td {
+    display: block;
+    padding: 10px;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .table tbody td:nth-child(n + 2) {
+    text-align: left;
+    font-weight: normal;
+  }
+}
