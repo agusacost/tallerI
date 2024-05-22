@@ -10,27 +10,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <!-- globales -->
-  <link rel="stylesheet" href="assets\css\header.css">
-  <link rel="stylesheet" href="assets/css/footer-fixs.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/header.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/footer-fixs.css') ?>">
   <!-- principal -->
-  <link rel="stylesheet" href="assets\css\principal-banner-fix.css">
-  <link rel="stylesheet" href="assets\css\principal-categories.css">
-  <link rel="stylesheet" href="assets\css\principal-products-fix.css">
-  <link rel="stylesheet" href="assets\css\principal-productos-2.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/principal-banner-fix.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/principal-categories.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/principal-products-fix.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/principal-productos-2.css') ?>">
 
   <!-- contact -->
-  <link rel="stylesheet" href="assets\css\contact.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/contact.css') ?>">
   <!-- about -->
-  <link rel="stylesheet" href="assets\css\about.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/about.css') ?>">
   <!-- preg frecuentes -->
-  <link rel="stylesheet" href="assets\css\preg-frec-fix.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/preg-frec-fix.css') ?>">
   <!-- terminos -->
-  <link rel="stylesheet" href="assets\css\terms.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/terms.css') ?>">
   <!-- login -->
-  <link rel="stylesheet" href="assets\css\login.css">
-  <link rel="stylesheet" href="assets\css\register.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/login.css') ?>">
+  <link rel="stylesheet" href="<?= base_url('assets/css/register.css') ?>">
   <!-- productos -->
-  <link rel="stylesheet" href="assets\css\products\allproducts.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/products/allproducts.css') ?>">
 
 
   <title>KeepGreen</title>

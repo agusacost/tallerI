@@ -49,10 +49,12 @@ $routes->post('/signin', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 
 //productos
-$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']);
-$routes->get('/addProduct', 'Product::add', ['filter' => 'authAdmin']);
-$routes->post('/save', 'Product::save', ['filter' => 'authAdmin']);
-$routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']);
+$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']); //listar todos los prooductos
+$routes->get('/producto', 'Product::form', ['filter' => 'authAdmin']); //form para crear
+$routes->post('/producto/save', 'Product::save', ['filter' => 'authAdmin']); //crea producto 
+$routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']); //form para actualizar
+$routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
+$routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
 
 
 /*

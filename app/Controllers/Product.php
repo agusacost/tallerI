@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\Controller;
 use App\Models\Products;
 
 class Product extends BaseController
@@ -17,13 +16,8 @@ class Product extends BaseController
         echo view('Products/listar', $datos);
         echo view('components/footer');
     }
-    public function add()
-    {
-        echo view('components/header');
-        echo view('Products/addProduct');
-        echo view('components/footer');
-    }
-    public function save()
+
+    public function save($id = null)
     {
         $product = new Products();
         $request = service('request');
@@ -37,23 +31,45 @@ class Product extends BaseController
         ];
 
         //verificar existencia
-        $productFound = $product->where('nombre', $data['nombre'])->first();
         $imagen = $this->request->getFile('imagen');
 
-        if ($imagen = $request->getFile('imagen')) {
+        if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $newNameImagen = $imagen->getRandomName();
             $imagen->store('../../assets/img', $newNameImagen);
 
             $data['imagen'] = $newNameImagen;
+        } elseif ($id) {
+
+            $productId = $product->find($id);
+            $data['imagen'] = $productId['imagen'];
         }
 
-        if ($productFound) {
-            return redirect()->back()->with('error', 'El producto ya existe');
-        } elseif ($product->insert($data)) {
-            return redirect()->to('/listar')->with('mensaje', 'Producto agregado con exito');
+        if ($id) {
+            $productId = $product->find($id);
+            if (!$productId) {
+                return redirect()->to('/listar')->with('error', 'Producto no encontrado');
+            }
+            $product->update($id, $data);
+            return redirect()->to('/listar')->with('mensaje', 'Producto actualizado');
         } else {
-            return redirect()->back()->with('error', 'Error al cargar el producto');
+            $productFound = $product->where('nombre', $data['nombre'])->first();
+
+            if ($productFound) {
+                return redirect()->back()->with('error', 'Producto ya existe');
+            } else {
+                $product->insert($data);
+                return redirect()->to('/listar')->with('Mensaje', 'Producto actualizado con exito');
+            }
         }
+    }
+    public function form($id = null)
+    {
+        $product = new Products();
+        $data['product'] = $id ? $product->find($id) : null;
+
+        echo view('components/header');
+        echo view('Products/productForm', $data);
+        echo view('components/footer');
     }
     public function borrar($id = null)
     {

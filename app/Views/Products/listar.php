@@ -3,7 +3,7 @@
     <h1>Stock de productos</h1>
   </div>
   <div class="table-button">
-    <a href="<?= base_url('/addProduct') ?>" class="">Agregar un producto</a>
+    <a href="<?= base_url('/producto') ?>" class="">Agregar un producto</a>
   </div>
   <table class="table">
     <thead>
@@ -39,7 +39,7 @@
             <div class="actions">
               <div class="edit">
                 <!-- editar -->
-                <a href="#" class=""><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="<?= base_url('producto/' . $producto['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
               </div>
               <div class="delete">
                 <!-- borrar -->
