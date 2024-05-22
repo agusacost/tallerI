@@ -20,7 +20,6 @@ class Product extends BaseController
     public function save($id = null)
     {
         $product = new Products();
-        $request = service('request');
 
         $data = [
             'nombre' => $this->request->getPost('nombre'),
