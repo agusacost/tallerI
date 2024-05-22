@@ -4,9 +4,8 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\Products;
-use PhpParser\Node\Stmt\Echo_;
 
-class Product extends Controller
+class Product extends BaseController
 {
     public function index()
     {
@@ -29,33 +28,39 @@ class Product extends Controller
         $product = new Products();
         $request = service('request');
 
-        $nombre = $request->getPost('nombre');
-        $descripcion = $request->getPost('descripcion');
-        $img = $request->getFile('imagen');
-        $precio = $request->getPost('precio');
-        $cantidad = $request->getPost('cantidad');
+        $data = [
+            'nombre' => $this->request->getPost('nombre'),
+            'descripcion' => $this->request->getPost('descripcion'),
+            'id_categoria' => $this->request->getPost('id_categoria'),
+            'cantidad' => $this->request->getPost('cantidad'),
+            'precio' => $this->request->getPost('precio'),
+        ];
 
-        if ($img = $request->getFile('img')) {
-            $newName = $img->getRandomName();
-            $img->store('../../app/assets/img', $newName);
+        //verificar existencia
+        $productFound = $product->where('nombre', $data['nombre'])->first();
+        $imagen = $this->request->getFile('imagen');
 
-            $data = [
-                'nombre' => $nombre,
-                'descripcion' => $descripcion,
-                'imagen' => $newName,
-                'precio' => $precio,
-                'cantidad' => $cantidad,
-            ];
-            $product->insert($data);
+        if ($imagen = $request->getFile('imagen')) {
+            $newNameImagen = $imagen->getRandomName();
+            $imagen->store('../../assets/img', $newNameImagen);
+
+            $data['imagen'] = $newNameImagen;
         }
-        return redirect()->to(base_url('/listar'));
+
+        if ($productFound) {
+            return redirect()->back()->with('error', 'El producto ya existe');
+        } elseif ($product->insert($data)) {
+            return redirect()->to('/listar')->with('mensaje', 'Producto agregado con exito');
+        } else {
+            return redirect()->back()->with('error', 'Error al cargar el producto');
+        }
     }
     public function borrar($id = null)
     {
         $product = new Products();
         $dataProduct = $product->where('id', $id)->first();
 
-        $route = ("app\assets\img/" . $dataProduct['imagen']);
+        $route = ("assets/img/" . $dataProduct['imagen']);
         unlink($route);
 
 

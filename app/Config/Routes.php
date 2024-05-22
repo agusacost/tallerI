@@ -50,9 +50,9 @@ $routes->get('/logout', 'Login::logout');
 
 //productos
 $routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']);
-$routes->get('/addProduct', 'Product::add');
-$routes->post('/save', 'Product::save');
-$routes->get('/borrar/(:num)', 'Product::borrar/$1');
+$routes->get('/addProduct', 'Product::add', ['filter' => 'authAdmin']);
+$routes->post('/save', 'Product::save', ['filter' => 'authAdmin']);
+$routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']);
 
 
 /*

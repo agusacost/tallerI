@@ -27,7 +27,7 @@
 
 
           <td>
-            <img src="app\assets\img\<?php echo $producto['imagen']; ?>" alt="producto" width="100">
+            <img src="assets\img\<?php echo $producto['imagen']; ?>" alt="producto" width="100">
           </td>
 
 
