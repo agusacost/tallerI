@@ -56,6 +56,10 @@ $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']);
 $routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
 $routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
 
+//users
+$routes->get('/listar_users', 'Users', ['filter' => 'authAdmin']);
+$routes->get('/borrar_user/(:num)', 'Users::borrar/$1', ['filter' => 'authAdmin']);
+
 
 /*
  * --------------------------------------------------------------------
