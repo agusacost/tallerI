@@ -20,45 +20,65 @@ class Users extends BaseController
         helper(['url', 'form']);
     }
 
-    public function create()
+    public function form($id = null)
     {
+        $users = new User();
+        $data['user'] = $id ? $users->find($id) : null;
+
         echo view('components/header');
-        echo view('/Pages/auth/register');
+        echo view('/Pages/auth/register', $data);
         echo view('components/footer');
     }
 
-    public function formValidation()
+    public function formValidation($id = null)
     {
 
-        $input = $this->validate(
+        $rules =
             [
                 'name' => 'required|min_length[3]|max_length[64]',
                 'surname' => 'required|min_length[3]|max_length[64]',
-                'email' => 'required|min_length[4]|max_length[128]|is_unique[user.email]',
-                'password' => 'required|min_length[5]|max_length[20]'
-            ],
-        );
+                'email' => 'required|min_length[4]|max_length[128]|' . ($id ? '' : 'is_unique[user.email]'),
+            ];
 
+        if (!$id) {
+
+            $rules['password'] = 'required|min_length[5]|max_length[20]';
+        } else {
+            $password = $this->request->getPost('password');
+            if ($password) {
+
+                $rules['password'] = 'min_length[5]|max_length[20]';
+            }
+        }
+
+        $input = $this->validate($rules);
         $formModel = new User();
 
         if (!$input) {
             echo view('components/header');
-            echo view('/Pages/auth/register', ['validation' => $this->validator]);
+            echo view('/Pages/auth/register', ['validation' => $this->validator, 'users' => $id ? $formModel->find($id) : null]);
             echo view('components/footer');
         } else {
 
-            $query = $formModel->save([
+            $data = [
+
                 'name' => $this->request->getPost('name'),
                 'surname' => $this->request->getPost('surname'),
                 'email' => $this->request->getPost('email'),
-                'password' => password_hash('123456', PASSWORD_DEFAULT),
-                'id_perfil' => 2,
-                //TODO AGREGAR PERFILID
-            ]);
-            if ($query) {
-                return redirect()->to('/register')->with('success', 'Registrado correctamente');
+                'id_perfil' => $this->request->getPost('id_perfil'),
+            ];
+
+            if ($this->request->getPost('password')) {
+                $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+            }
+
+            if ($id) {
+                $formModel->update($id, $data);
+                return redirect()->to('/listar_users')->with('success', 'Usuario actualizado');
             } else {
-                return redirect()->to('/register')->with('fail', 'Algo anduvo mal');
+                $data['id_perfil'] = 2;
+                $formModel->save($data);
+                return redirect()->to('/login')->with('success', 'Registrado correctamente');
             }
         }
     }

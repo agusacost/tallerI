@@ -32,7 +32,7 @@
                             <div class="actions">
                                 <div class="edit">
                                     <!-- editar -->
-                                    <a href="<?= base_url('producto/' . $user['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="<?= base_url('edit/' . $user['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
                                 </div>
                                 <div class="delete">
                                     <!-- borrar -->

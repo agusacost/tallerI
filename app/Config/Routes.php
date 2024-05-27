@@ -40,9 +40,15 @@ $routes->get('/termsandconditions', 'Home::terms');
 $routes->get('/commerce', 'Home::commerce');
 $routes->get('/politics', 'Home::politics');
 
+//users
+$routes->get('/listar_users', 'Users', ['filter' => 'authAdmin']);
+$routes->get('/borrar_user/(:num)', 'Users::borrar/$1', ['filter' => 'authAdmin']);
+$routes->get('/edit/(:num)', 'Users::form/$1');
+//actualizar
+$routes->post('/user/formValidation/(:num)', 'Users::formValidation/$1');
 //register
-$routes->get('/register', 'Users::create');
-$routes->post('/register_user', 'Users::formValidation');
+$routes->get('/register', 'Users::form');
+$routes->post('/user/formValidation', 'Users::formValidation');
 //loguear
 $routes->get('/login', 'Login::login');
 $routes->post('/signin', 'Login::auth');
@@ -56,9 +62,6 @@ $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']);
 $routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
 $routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
 
-//users
-$routes->get('/listar_users', 'Users', ['filter' => 'authAdmin']);
-$routes->get('/borrar_user/(:num)', 'Users::borrar/$1', ['filter' => 'authAdmin']);
 
 
 /*
