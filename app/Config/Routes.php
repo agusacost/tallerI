@@ -41,8 +41,8 @@ $routes->get('/commerce', 'Home::commerce');
 $routes->get('/politics', 'Home::politics');
 
 //register
-$routes->get('/register', 'Register::create');
-$routes->post('/register_user', 'Register::formValidation');
+$routes->get('/register', 'Users::create');
+$routes->post('/register_user', 'Users::formValidation');
 //loguear
 $routes->get('/login', 'Login::login');
 $routes->post('/signin', 'Login::auth');
