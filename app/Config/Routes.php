@@ -34,7 +34,6 @@ $routes->set404Override();
 //layout principal
 $routes->get('/', 'Home::principal');
 $routes->get('/about', 'Home::about');
-$routes->get('/contact', 'Home::contact');
 $routes->get('/frequentquestions', 'Home::frequentquestions');
 $routes->get('/termsandconditions', 'Home::terms');
 $routes->get('/commerce', 'Home::commerce');
@@ -62,6 +61,10 @@ $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']);
 $routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
 $routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
 
+//consultas
+$routes->get('/contact', 'Consulta');
+$routes->post('/contact/send', 'Consulta::sendConsulta');
+$routes->get('/contact_list', 'Consulta::listaConsulta');
 
 
 /*

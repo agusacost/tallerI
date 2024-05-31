@@ -50,6 +50,7 @@
           <li><a href="<?= base_url() ?>">Home</a></li>
           <!-- Si es admin -->
           <?php if ($session->get('id_perfil') == 1) : ?>
+            <li><a href="<?= base_url('/contact_list') ?>">Consultas</a></li>
             <li><a href="<?= base_url('/listar') ?>">Productos</a></li>
             <li><a href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
           <?php else : ?>

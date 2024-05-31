@@ -57,7 +57,7 @@ class Product extends BaseController
                 return redirect()->back()->with('error', 'Producto ya existe');
             } else {
                 $product->insert($data);
-                return redirect()->to('/listar')->with('Mensaje', 'Producto actualizado con exito');
+                return redirect()->to('/listar')->with('mensaje', 'Producto actualizado con exito');
             }
         }
     }
