@@ -55,7 +55,7 @@
             <li><a href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
           <?php else : ?>
             <!-- Usuario user -->
-            <li><a href="<?= base_url('/products') ?>">Productos</a></li>
+            <li><a href="<?= base_url('/productos') ?>">Productos</a></li>
             <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
             <li><a href="<?= base_url('/contact') ?>">Perfil</a></li>
             <div class="nav-carrito">
@@ -67,7 +67,7 @@
       <?php else : ?>
         <ul id="menuList" class="menu-list">
           <li><a href="<?= base_url() ?>">Home</a></li>
-          <li><a href="<?= base_url('/products') ?>">Productos</a></li>
+          <li><a href="<?= base_url('/productos') ?>">Productos</a></li>
           <li><a href="<?= base_url('/about') ?>">Quiénes somos</a></li>
           <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
           <li><a href="<?= base_url('/login') ?>">Login</a></li>
