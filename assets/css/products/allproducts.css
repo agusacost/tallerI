@@ -223,3 +223,97 @@
     font-size: 14px;
   }
 }
+
+.productoFiltro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px;
+}
+
+.productoFiltro .btn-filtrar {
+  padding: 8px 16px;
+  background-color: #133839;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.productoFiltro .btn-filtrar:hover {
+  background-color: #28a745;
+  text-decoration: none;
+}
+
+.productoFiltro select {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+}
+
+.productCard {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #155724;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.productCard h3 {
+  color: #133839;
+}
+
+.productCard img {
+  width: auto;
+  height: 200px;
+  border-radius: 12px;
+}
+
+.productCard h3 {
+  margin: 10px 0;
+}
+
+.productCard p {
+  margin: 0;
+}
+
+.productCard .precio {
+  font-weight: bold;
+  margin-top: 0.3rem;
+  color: #000;
+}
+
+.productCard .btn-agregar {
+  margin-top: 1rem;
+  padding: 0.5rem 10px;
+  border-radius: 12px;
+  background-color: #133839;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+.productCard .btn-agregar:hover {
+  background-color: #28a745;
+}
+
+.productCard .compra {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+}
+
+.productCard .compra .pago p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}

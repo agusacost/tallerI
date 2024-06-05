@@ -16,6 +16,29 @@ class Product extends BaseController
         echo view('Products/listar', $datos);
         echo view('components/footer');
     }
+    public function publicProducts()
+    {
+        $product = new Products();
+        //consulta
+        $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
+        echo view('components/header');
+        echo view('Products/publicProducts', $datos);
+        echo view('components/footer');
+    }
+    public function filtrarProductos()
+    {
+        $product = new Products();
+        $categoria = $this->request->getPost('id_categoria');
+        if ($categoria) {
+            $datos['product'] = $product->where('id_categoria', $categoria)->orderBy('id', 'ASC')->findAll();
+        } else {
+            $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
+        }
+
+        echo view('components/header');
+        echo view('Products/publicProducts', $datos);
+        echo view('components/footer');
+    }
 
     public function save($id = null)
     {

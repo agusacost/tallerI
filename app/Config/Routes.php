@@ -54,7 +54,9 @@ $routes->post('/signin', 'Login::auth');
 $routes->get('/logout', 'Login::logout');
 
 //productos
-$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']); //listar todos los prooductos
+$routes->get('/productos', 'Product::publicProducts'); //Cards todos los productos
+$routes->post('/productos/filtrar', 'Product::filtrarProductos'); //Cards con filtro de categoria
+$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']); //listar todos los productos
 $routes->get('/producto', 'Product::form', ['filter' => 'authAdmin']); //form para crear
 $routes->post('/producto/save', 'Product::save', ['filter' => 'authAdmin']); //crea producto 
 $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']); //form para actualizar
