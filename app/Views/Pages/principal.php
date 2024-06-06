@@ -1,6 +1,7 @@
 <?= $header ?>
 <!-- banner -->
 <section class="banner">
+  <?php $session = session(); ?>
   <div class="content-banner">
     <p>Mantenete natural</p>
     <h2>Productos 100% organicos<br>Libre de conservantes</h2>
@@ -106,7 +107,11 @@
             <div class="pago">
               <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
             </div>
-            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php if ($session->get('isLoggedIn')) : ?>
+              <a href="<?= base_url('/productos') ?>" class="btn-comprar">Comprar</a>
+            <?php else : ?>
+              <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php endif ?>
           </div>
         </div>
       </div>
