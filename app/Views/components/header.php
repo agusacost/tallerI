@@ -47,7 +47,6 @@
       </a>
       <?php if ($session->get('isLoggedIn')) : ?>
         <ul id="menuList" class="menu-list">
-          <li><a href="<?= base_url() ?>">Home</a></li>
           <!-- Si es admin -->
           <?php if ($session->get('id_perfil') == 1) : ?>
             <li><a href="<?= base_url('/contact_list') ?>">Consultas</a></li>
@@ -59,7 +58,9 @@
             <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
             <li><a href="<?= base_url('/contact') ?>">Perfil</a></li>
             <div class="nav-carrito">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="<?= base_url('/carrito/view') ?>">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
             </div>
           <?php endif; ?>
           <li><a href="<?= base_url('/logout') ?>">Logout</a></li>
