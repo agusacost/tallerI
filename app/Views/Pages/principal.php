@@ -12,26 +12,26 @@
   <!-- categories -->
   <section class="container">
     <div class="categorias-texto">
-    <h1 class="text-center">Categorías</h1>
+      <h1 class="text-center">Categorías</h1>
     </div>
     <div class="top-categories">
-    <div class="card-category category-cereales">
-      <p>Cereales</p>
-      <span>Ver mas</span>
-    </div>
-    <div class="card-category category-frutos-secos">
-      <p>Frutos Secos</p>
-      <span>Ver mas</span>
-    </div>
-    <div class="card-category category-suplementos">
-      <p>Suplementos</p>
-      <span>Ver mas</span>
-    </div>
+      <div class="card-category category-cereales">
+        <p>Cereales</p>
+        <span>Ver mas</span>
+      </div>
+      <div class="card-category category-frutos-secos">
+        <p>Frutos Secos</p>
+        <span>Ver mas</span>
+      </div>
+      <div class="card-category category-suplementos">
+        <p>Suplementos</p>
+        <span>Ver mas</span>
+      </div>
     </div>
   </section>
 
-   <!-- cards -->
-   <section class="container container-features">
+  <!-- cards -->
+  <section class="container container-features">
     <div class="card-feature">
       <i class="fa-solid fa-truck"></i>
       <div class="feature-content">
@@ -65,59 +65,53 @@
   <!-- cards -->
   <section>
     <h2 class="text-center">Nuestros seleccionados!</h2>
-  <div class="principal-cards">
-    <div class="card">
-      <img src="assets/img/mix-secos.jpg" alt="">
-      <div class="content">
-        <div class="row">
-          <div class="details">
-            <span>Mix de frutos secos</span>
-            <p>300gr</p>
+    <div class="principal-cards">
+      <div class="productCard">
+        <div class="producto-card">
+          <img src="<?= base_url('assets/img/1716416400_85336797a6fbf8a0d67c.jpg');  ?>" alt="producto">
+          <h3>Almohaditas</h3>
+          <p>100gr</p>
+          <div class="compra">
+            <span class="precio">$600</span>
+            <div class="pago">
+              <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
+            </div>
+            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
           </div>
-          <div class="price">$3500</div>
         </div>
-        <div class="buttons">
-          <button>Comprar</button>
-          <button class="cart-btn">Agregar al carrito</button>
+      </div>
+      <!-- prod 2 -->
+      <div class="productCard">
+        <div class="producto-card">
+          <img src="<?= base_url('assets/img/1717623929_9bc37d28596a5b7887d6.png');  ?>" alt="producto">
+          <h3>Mullti-Collagen</h3>
+          <p>30 tabletas</p>
+          <div class="compra">
+            <span class="precio">$ 15547.06</span>
+            <div class="pago">
+              <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
+            </div>
+            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+          </div>
+        </div>
+      </div>
+      <!-- prod 3 -->
+      <div class="productCard">
+        <div class="producto-card">
+          <img src="<?= base_url('assets/img/1717624166_b5bc2cc1be3c2a19543b.png');  ?>" alt="producto">
+          <h3>Natural Life Move</h3>
+          <p>30 tabletas</p>
+          <div class="compra">
+            <span class="precio">$15219.00</span>
+            <div class="pago">
+              <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
+            </div>
+            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+          </div>
         </div>
       </div>
     </div>
-    <!-- prod 2 -->
-    <div class="card">
-      <img src="assets/img/cereales-prod.jpg" alt="">
-      <div class="content">
-        <div class="row">
-          <div class="details">
-            <span>Cereales de trigo</span>
-            <p>500gr</p>
-          </div>
-          <div class="price">$3250</div>
-        </div>
-        <div class="buttons">
-          <button>Comprar</button>
-          <button class="cart-btn">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-    <!-- prod 3 -->
-    <div class="card">
-      <img src="assets/img/capsulas.jpeg" alt="">
-      <div class="content">
-        <div class="row">
-          <div class="details">
-            <span>Capsulas dietarias</span>
-            <p>30u.</p>
-          </div>
-          <div class="price">$12500</div>
-        </div>
-        <div class="buttons">
-          <button>Comprar</button>
-          <button class="cart-btn">Agregar al carrito</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <?= $footer ?>
