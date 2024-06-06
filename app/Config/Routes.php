@@ -63,6 +63,13 @@ $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']);
 $routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
 $routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
 
+//cart
+$routes->get('carrito/view', 'Cart::view', ['filter' => 'authUser']);
+$routes->post('carrito/add', 'Cart::add', ['filter' => 'authUser']);
+$routes->post('carrito/update', 'Cart::update', ['filter' => 'authUser']);
+$routes->post('carrito/remove/(:any)', 'Cart::remove/$1', ['filter' => 'authUser']); //elimina un item
+$routes->post('carrito/remove', 'Cart::remove', ['filter' => 'authUser']); //vacia el carrito
+
 //consultas
 $routes->get('/contact', 'Consulta');
 $routes->post('/contact/send', 'Consulta::sendConsulta');
