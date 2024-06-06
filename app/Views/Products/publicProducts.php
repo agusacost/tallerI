@@ -1,4 +1,5 @@
 <div class="container">
+    <?php $session = session(); ?>
     <div class="bg-listar">
         <div class="table-title">
             <h1>Nuestros productos!</h1>
@@ -27,7 +28,19 @@
                             <div class="pago">
                                 <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
                             </div>
-                            <button class="btn-agregar">Agregar al carrito</button>
+                            <form action="<?= base_url('carrito/add') ?>" method="post">
+                                <!-- Datos del producto -->
+                                <input type="hidden" name="id" value="<?= $producto['id'] ?>">
+                                <input type="hidden" name="qty" value="1"> <!-- Cantidad predeterminada -->
+                                <input type="hidden" name="price" value="<?= $producto['precio'] ?>">
+                                <input type="hidden" name="name" value="<?= $producto['nombre'] ?>">
+                                <!-- Botón de agregar al carrito -->
+                                <?php if ($session->get('isLoggedIn')) : ?>
+                                    <button type="submit" class="btn-agregar">Agregar al carrito</button>
+                                <?php else : ?>
+                                    <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+                                <?php endif ?>
+                            </form>
                         </div>
                     </div>
                 </div>
