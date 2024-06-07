@@ -60,7 +60,9 @@
         <?php if (!empty($productos)) : ?>
             <div class="carrito-total">
                 <p>Total: $ <span id="carrito-total"><?= number_format($cart->total(), 2) ?></span></p>
-                <button class="btn-comprar">Proceder a comprar</button>
+                <form action="<?= base_url('ventas/confirmar') ?>" method="post">
+                    <button class="btn-comprar">Proceder a comprar</button>
+                </form>
             </div>
         <?php endif; ?>
     </div>
