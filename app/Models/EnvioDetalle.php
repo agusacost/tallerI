@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class envioDetalle extends Model
+class EnvioDetalle extends Model
 {
     protected $table      = 'Envio_detalle';
     protected $primaryKey = 'id_envio';
