@@ -26,6 +26,12 @@ class Consulta extends BaseController
         $session->setFlashdata('mensaje', 'Consulta enviada con exito');
         return redirect()->to('/contact');
     }
+    public function borrarConsulta($id = null)
+    {
+        $consulta = new Consultas();
+        $consulta->where('id_consulta', $id)->delete($id);
+        return redirect()->back();
+    }
     public function listaConsulta()
     {
 

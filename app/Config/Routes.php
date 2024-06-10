@@ -78,7 +78,8 @@ $routes->get('ventas/success', 'Cart::success', ['filter' => 'authUser']); //ir 
 //consultas
 $routes->get('/contact', 'Consulta');
 $routes->post('/contact/send', 'Consulta::sendConsulta');
-$routes->get('/contact_list', 'Consulta::listaConsulta');
+$routes->get('/contact_list', 'Consulta::listaConsulta', ['filter' => 'authAdmin']);
+$routes->get('/borrar_consulta/(:num)', 'Consulta::borrarConsulta/$1', ['filter' => 'authAdmin']);
 
 
 /*
