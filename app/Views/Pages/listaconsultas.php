@@ -1,7 +1,7 @@
 <div class="container">
     <div class="bg-listar">
         <div class="table-title">
-            <h1>Usuarios Registrados</h1>
+            <h1>Mensajes Pendientes</h1>
         </div>
         <table class="table">
             <thead>
