@@ -42,7 +42,8 @@ $routes->get('/politics', 'Home::politics');
 //users
 $routes->get('/listar_users', 'Users', ['filter' => 'authAdmin']);
 $routes->get('/borrar_user/(:num)', 'Users::borrar/$1', ['filter' => 'authAdmin']);
-$routes->get('/edit/(:num)', 'Users::form/$1');
+$routes->get('/edit/(:num)', 'Users::form/$1', ['filter' => 'authUser']);
+$routes->get('/profile', 'Users::profile', ['filter' => 'authUser']);
 //actualizar
 $routes->post('/user/formValidation/(:num)', 'Users::formValidation/$1');
 //register
