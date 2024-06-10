@@ -1,114 +1,118 @@
-.somos{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.somos {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-.somos h3{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #133839;
-    padding-bottom: 0.5rem;
+.somos h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #133839;
+  padding-bottom: 0.5rem;
 }
 
-.somos p{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #777;
-    text-align: justify;
+.somos p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #777;
+  text-align: justify;
 }
 
-.acerca{
-    padding-bottom: 2rem;
+.acerca {
+  padding-bottom: 2rem;
 }
 
-.acerca h3{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #133839;
-    padding-bottom: 0.5rem;
+.acerca h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #133839;
+  padding-bottom: 0.5rem;
 }
 
-.acerca p{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #777;
-    text-align: justify;
+.acerca p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #777;
+  text-align: justify;
 }
 
-.objetivo{
-    padding-bottom: 2rem;
+.objetivo {
+  padding-bottom: 2rem;
 }
 
-.objetivo h3{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #133839;
-    padding-bottom: 0.5rem;
+.objetivo h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #133839;
+  padding-bottom: 0.5rem;
 }
 
-.objetivo p{
-    font-size: 1rem;
-    font-weight: 500;
-    color: #777;
+.objetivo p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #777;
 }
 
-.equipo-container{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 0.5rem;
-    margin: 0.5rem;
-    padding-top: 1rem;
-    padding-left: 5rem;
-}
-
-.equipo h3{
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #133839;
-}
-
-.card{
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-    background-color: #fff;
-    border-radius: 6px;
-    padding:  30px  5px;
-    height: 15rem;
-    width: 15rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-}
-
-.text h4{
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    font-weight: 600;
-    color: #133839;
-}
-
-.text p{
-    color: #777;
-    font-weight: 500;
+.equipo-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin: 0.5rem;
+  padding-top: 1rem;
+  padding-left: 5rem;
 }
 
 @media (max-width: 768px) {
-    .somos{
-        margin-left: 2rem;
-    }
-    .acerca{
-        margin-left: 2rem;
-    }
-    .objetivo{
-        margin-left: 2rem;
-    }
-    .equipo h3{
-        margin-left: 2rem;
-    }
-    .equipo-container{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap:1rem;
-    }
+  .equipo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.equipo h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #133839;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 30px 5px;
+  height: 15rem;
+  width: 15rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text h4 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-weight: 600;
+  color: #133839;
+}
+
+.text p {
+  color: #777;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .somos {
+    margin-left: 2rem;
+  }
+  .acerca {
+    margin-left: 2rem;
+  }
+  .objetivo {
+    margin-left: 2rem;
+  }
+  .equipo h3 {
+    margin-left: 2rem;
+  }
 }
