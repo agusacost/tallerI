@@ -81,6 +81,10 @@ $routes->post('/contact/send', 'Consulta::sendConsulta');
 $routes->get('/contact_list', 'Consulta::listaConsulta', ['filter' => 'authAdmin']);
 $routes->get('/borrar_consulta/(:num)', 'Consulta::borrarConsulta/$1', ['filter' => 'authAdmin']);
 
+//ventas
+$routes->get('/ventas_list', 'Ventas',  ['filter' => 'authAdmin']);
+//envios
+$routes->get('/envios_list', 'Envios',  ['filter' => 'authAdmin']);
 
 /*
  * --------------------------------------------------------------------

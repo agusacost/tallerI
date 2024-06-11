@@ -50,20 +50,20 @@
           <!-- Si es admin -->
           <?php if ($session->get('id_perfil') == 1) : ?>
             <li><a href="<?= base_url('/contact_list') ?>">Consultas</a></li>
+            <li><a href="<?= base_url('/ventas_list') ?>">Ventas</a></li>
             <li><a href="<?= base_url('/listar') ?>">Productos</a></li>
             <li><a href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
           <?php else : ?>
             <!-- Usuario user -->
             <li><a href="<?= base_url('/productos') ?>">Productos</a></li>
-            <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
-            <li><a href="<?= base_url('/contact') ?>">Perfil</a></li>
+            <li><a href="<?= base_url('/profile') ?>">Perfil</a></li>
             <div class="nav-carrito">
               <a href="<?= base_url('/carrito/view') ?>">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
           <?php endif; ?>
-          <li><a href="<?= base_url('/logout') ?>">Logout</a></li>
+          <li><a href="<?= base_url('/logout') ?>"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
         </ul>
       <?php else : ?>
         <ul id="menuList" class="menu-list">

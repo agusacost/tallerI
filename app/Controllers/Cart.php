@@ -170,7 +170,7 @@ class Cart extends BaseController
             'provincia' => $provincia,
             'codigo_postal' => $codigo_postal,
             'metodo_envio' => $metodo_envio,
-            'costo_envio' => 3500,
+            'costo_envio' => $costo_envio,
             'fecha_envio' => date('Y-m-d H:i:s'),
         ];
         $enivo->insert($envioData);
@@ -180,7 +180,6 @@ class Cart extends BaseController
         // Redirigir a una página de éxito
         return redirect()->to('ventas/success')->with('mensaje', 'La compra se ha realizado con éxito.');
     }
-
     public function success()
     {
         echo view('components/header');

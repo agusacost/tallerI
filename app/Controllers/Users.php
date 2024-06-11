@@ -6,6 +6,10 @@ use App\Models\User;
 
 class Users extends BaseController
 {
+    public function __construct()
+    {
+        helper(['url', 'form']);
+    }
     public function index()
     {
         $users = new User();
@@ -15,9 +19,11 @@ class Users extends BaseController
         echo view('users/userlist', $datos);
         echo view('components/footer');
     }
-    public function __construct()
+    public function profile()
     {
-        helper(['url', 'form']);
+        echo view('components/header');
+        echo view('users/profile');
+        echo view('components/footer');
     }
 
     public function form($id = null)

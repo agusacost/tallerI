@@ -5,7 +5,7 @@
   <div class="content-banner">
     <p>Mantenete natural</p>
     <h2>Productos 100% organicos<br>Libre de conservantes</h2>
-    <a href="#">Comprar ahora</a>
+    <a href="<?= base_url('productos') ?>">Comprar ahora</a>
   </div>
 </section>
 <!-- endbanner -->
@@ -18,15 +18,21 @@
     <div class="top-categories">
       <div class="card-category category-cereales">
         <p>Cereales</p>
-        <span>Ver mas</span>
+        <a href="<?= base_url('productos') ?>">
+          <span>Ver mas</span>
+        </a>
       </div>
       <div class="card-category category-frutos-secos">
         <p>Frutos Secos</p>
-        <span>Ver mas</span>
+        <a href="<?= base_url('productos') ?>">
+          <span>Ver mas</span>
+        </a>
       </div>
       <div class="card-category category-suplementos">
         <p>Suplementos</p>
-        <span>Ver mas</span>
+        <a href="<?= base_url('productos') ?>">
+          <span>Ver mas</span>
+        </a>
       </div>
     </div>
   </section>
