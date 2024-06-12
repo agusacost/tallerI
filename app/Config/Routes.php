@@ -83,6 +83,7 @@ $routes->get('/borrar_consulta/(:num)', 'Consulta::borrarConsulta/$1', ['filter'
 
 //ventas
 $routes->get('/ventas_list', 'Ventas',  ['filter' => 'authAdmin']);
+$routes->get('/ventas/usuario/(:num)', 'Ventas::ventasUser/$1',  ['filter' => 'authUser']);
 //envios
 $routes->get('/envios_list', 'Envios',  ['filter' => 'authAdmin']);
 
