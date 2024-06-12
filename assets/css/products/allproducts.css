@@ -611,7 +611,7 @@
 }
 
 .compra-container {
-  height: 100vh;
+  height: auto;
 }
 .compra-container h3 {
   color: #133839;
@@ -626,4 +626,21 @@
 
 .compra-form h3 {
   padding-top: 2rem;
+}
+
+.compra-form input {
+  width: 400px;
+  display: flex;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #e4e4e4;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .compra-form input {
+    width: 300px;
+  }
 }
