@@ -639,6 +639,48 @@
   font-size: 16px;
 }
 
+.compra-form select {
+  width: 400px;
+  display: flex;
+  outline: none;
+  border: 1px solid #fff;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: #e4e4e4;
+  font-size: 16px;
+}
+
+.btn-confirmar {
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 1.5rem;
+  background-color: #133839;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-confirmar button {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-confirmar button:hover {
+  background-color: transparent;
+}
+
+.btn-confirmar:hover {
+  background-color: #28a745;
+}
+
 @media (max-width: 768px) {
   .compra-form input {
     width: 300px;
