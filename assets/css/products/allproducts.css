@@ -649,12 +649,12 @@
   background: #e4e4e4;
   font-size: 16px;
 }
-
-.btn-confirmar {
+.compra-form button {
   width: 400px;
   padding: 20px;
   margin-bottom: 1.5rem;
   background-color: #133839;
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
   border: none;
@@ -664,20 +664,7 @@
   justify-content: center;
 }
 
-.btn-confirmar button {
-  text-align: center;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.btn-confirmar button:hover {
-  background-color: transparent;
-}
-
-.btn-confirmar:hover {
+.compra-form button:hover {
   background-color: #28a745;
 }
 
@@ -685,4 +672,45 @@
   .compra-form input {
     width: 300px;
   }
+}
+
+.container-success {
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.container-success h1 {
+  color: #133839;
+  font-size: 600;
+}
+
+.container-success p {
+  color: #133839;
+  font-size: 600;
+}
+
+.btn-vuelta {
+  width: 200px;
+  padding: 20px;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #133839;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-vuelta:hover {
+  background-color: #218838;
+  text-decoration: none;
+  color: #fff;
 }

@@ -68,9 +68,7 @@
                     <input type="hidden" name="costo_envio" id="costo_envio_hidden" value="">
                     <span id="costo_envio">...</span>
                 </div>
-                <div class="btn-confirmar">
-                    <button type="submit">Realizar Compra</button>
-                </div>
+                <button type="submit">Realizar Compra</button>
             </form>
         </div>
     </div>
