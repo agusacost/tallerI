@@ -134,6 +134,30 @@
   text-decoration: none;
 }
 
+.perfil-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.perfil-btn {
+  background-color: #133839;
+  width: 15rem;
+  padding-top: 1.5rem 0;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.perfil-btn:hover {
+  background-color: #28a745;
+  color: #fff;
+  text-decoration: none;
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .perfil-container {

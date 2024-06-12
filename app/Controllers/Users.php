@@ -38,7 +38,6 @@ class Users extends BaseController
 
     public function formValidation($id = null)
     {
-
         $rules =
             [
                 'name' => 'required|min_length[3]|max_length[64]',
@@ -80,7 +79,19 @@ class Users extends BaseController
 
             if ($id) {
                 $formModel->update($id, $data);
-                return redirect()->to('/listar_users')->with('success', 'Usuario actualizado');
+                $session = session();
+                if ($session->get('id') == $id) {
+
+                    $sess_data = [
+                        'name' => $data['name'],
+                        'surname' => $data['surname'],
+                        'email' => $data['email'],
+                        'id_perfil' => $data['id_perfil'],
+                        'isLoggedIn' => true,
+                    ];
+                    $session->set($sess_data);
+                }
+                return redirect()->back()->with('success', 'Usuario actualizado');
             } else {
                 $data['id_perfil'] = 2;
                 $formModel->save($data);
