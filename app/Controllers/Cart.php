@@ -112,73 +112,85 @@ class Cart extends BaseController
         $productoModelo = new Products();
         $session = session();
         $cart = \Config\Services::cart();
+        $db = \Config\Database::connect();
+        $db->transBegin();
+        try {
 
-        $carrito = $this->cart->contents();
-        if (empty($carrito)) {
-            return redirect()->back()->with('mensaje', 'El carrito esta vacio');
-        }
+            $carrito = $this->cart->contents();
+            if (empty($carrito)) {
+                return redirect()->back()->with('mensaje', 'El carrito esta vacio');
+            }
 
-        $usuario_id = $session->get('id');
+            $usuario_id = $session->get('id');
 
-        $total_venta = $cart->total();
+            $total_venta = $cart->total();
 
-        $tipoPago_id = $this->request->getPost('tipoPago_id');
-        $tarjeta = $this->request->getPost('tarjeta');
-        $direccion = $this->request->getPost('direccion');
-        $ciudad = $this->request->getPost('ciudad');
-        $provincia = $this->request->getPost('provincia');
-        $codigo_postal = $this->request->getPost('codigo_postal');
-        $metodo_envio = $this->request->getPost('metodo_envio');
-        $costo_envio = $this->request->getPost('costo_envio');
+            $tipoPago_id = $this->request->getPost('tipoPago_id');
+            $tarjeta = $this->request->getPost('tarjeta');
+            $direccion = $this->request->getPost('direccion');
+            $ciudad = $this->request->getPost('ciudad');
+            $provincia = $this->request->getPost('provincia');
+            $codigo_postal = $this->request->getPost('codigo_postal');
+            $metodo_envio = $this->request->getPost('metodo_envio');
+            $costo_envio = $this->request->getPost('costo_envio');
 
-        $ventasCabecera = new VentasCabecera();
-        $ventasCabeceraData = [
-            'fecha' => date('Y-m-d H:i:s'),
-            'usuario_id' => $usuario_id,
-            'total_venta' => $total_venta,
-            'tipoPago_id' => $tipoPago_id,
-            'tarjeta' => $tarjeta,
-        ];
-
-        if (!empty($ventasCabeceraData)) {
-            $ventasCabecera->insert($ventasCabeceraData);
-            $venta_id = $ventasCabecera->insertID();
-        }
-
-        $ventasDetalle = new VentasDetalle();
-        foreach ($carrito as $producto) {
-            $ventasDetalleData = [
-                'venta_id' => $venta_id,
-                'producto_id' => $producto['id'],
-                'cantidad' => $producto['qty'],
-                'precio' => $producto['price'],
+            $ventasCabecera = new VentasCabecera();
+            $ventasCabeceraData = [
+                'fecha' => date('Y-m-d H:i:s'),
+                'usuario_id' => $usuario_id,
+                'total_venta' => $total_venta,
+                'tipoPago_id' => $tipoPago_id,
+                'tarjeta' => $tarjeta,
             ];
-            $ventasDetalle->insert($ventasDetalleData);
-            $producto_id = $producto['id'];
-            $cantidad_actual = $productoModelo->getCantidad($producto_id);
 
-            $nueva_cantidad = $cantidad_actual - $producto['qty'];
+            if (!empty($ventasCabeceraData)) {
+                $ventasCabecera->insert($ventasCabeceraData);
+                $venta_id = $ventasCabecera->insertID();
+            }
 
-            $productoModelo->updateCantidad($producto_id, $nueva_cantidad);
+            $ventasDetalle = new VentasDetalle();
+            foreach ($carrito as $producto) {
+                $ventasDetalleData = [
+                    'venta_id' => $venta_id,
+                    'producto_id' => $producto['id'],
+                    'cantidad' => $producto['qty'],
+                    'precio' => $producto['price'],
+                ];
+                $ventasDetalle->insert($ventasDetalleData);
+                $producto_id = $producto['id'];
+                $cantidad_actual = $productoModelo->getCantidad($producto_id);
+
+                $nueva_cantidad = $cantidad_actual - $producto['qty'];
+
+                $productoModelo->updateCantidad($producto_id, $nueva_cantidad);
+            }
+            //Guardar los datos de envio
+            $enivo = new EnvioDetalle();
+            $envioData = [
+                'venta_id' => $venta_id,
+                'direccion' => $direccion,
+                'ciudad' => $ciudad,
+                'provincia' => $provincia,
+                'codigo_postal' => $codigo_postal,
+                'metodo_envio' => $metodo_envio,
+                'costo_envio' => $costo_envio,
+                'fecha_envio' => date('Y-m-d H:i:s'),
+            ];
+            $enivo->insert($envioData);
+
+            if ($db->transStatus() === false) {
+                throw new \Exception('Error en la transaccion');
+            }
+
+            $db->transCommit();
+            $cart->destroy();
+
+            // Redirigir a una página de éxito
+            return redirect()->to('ventas/success')->with('mensaje', 'La compra se ha realizado con éxito.');
+        } catch (\Exception $e) {
+            $db->transRollback();
+            return redirect()->back()->with('mensaje', 'Error en la compra' . $e->getMessage());
         }
-        //Guardar los datos de envio
-        $enivo = new EnvioDetalle();
-        $envioData = [
-            'venta_id' => $venta_id,
-            'direccion' => $direccion,
-            'ciudad' => $ciudad,
-            'provincia' => $provincia,
-            'codigo_postal' => $codigo_postal,
-            'metodo_envio' => $metodo_envio,
-            'costo_envio' => $costo_envio,
-            'fecha_envio' => date('Y-m-d H:i:s'),
-        ];
-        $enivo->insert($envioData);
-
-        $cart->destroy();
-
-        // Redirigir a una página de éxito
-        return redirect()->to('ventas/success')->with('mensaje', 'La compra se ha realizado con éxito.');
     }
     public function success()
     {
