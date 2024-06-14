@@ -68,6 +68,11 @@
                     <input type="hidden" name="costo_envio" id="costo_envio_hidden" value="">
                     <span id="costo_envio">...</span>
                 </div>
+                <div id="costo_total_container">
+                    <label for="costo_total">Costo total:</label>
+                    <input type="hidden" name="costo_total" id="costo_total_hidden" value="">
+                    <span id="costo_total">...</span>
+                </div>
                 <button type="submit">Realizar Compra</button>
             </form>
         </div>
@@ -75,11 +80,8 @@
 </main>
 
 <script>
-    // Calcula y muestra el costo de envío según el método seleccionado
-    document.getElementById('metodo_envio').addEventListener('change', function() {
-        var metodoEnvio = this.value;
-        var costoEnvioContainer = document.getElementById('costo_envio');
-        var costoEnvioHidden = document.getElementById('costo_envio_hidden');
+    function calcularCostoTotal() {
+        var metodoEnvio = document.getElementById('metodo_envio').value;
         var costoEnvio = 0;
 
         // Asigna el costo de envío según el método seleccionado
@@ -90,25 +92,24 @@
         }
 
         // Muestra el costo de envío
-        costoEnvioContainer.textContent = '$' + costoEnvio.toFixed(2);
-        costoEnvioHidden.value = costoEnvio.toFixed(2);
-    });
-    //Calcula al cargar la pagina
-    window.addEventListener('DOMContentLoaded', function() {
-        var metodoEnvio = document.getElementById('metodo_envio').value;
-        var costoEnvioContainer = document.getElementById('costo_envio');
-        var costoEnvioHidden = document.getElementById('costo_envio_hidden');
-        var costoEnvio = 0;
+        document.getElementById('costo_envio').textContent = '$' + costoEnvio.toFixed(2);
+        document.getElementById('costo_envio_hidden').value = costoEnvio.toFixed(2);
 
-        // Asigna el costo de envío según el método seleccionado por defecto
-        if (metodoEnvio === '1') {
-            costoEnvio = 1750; // Costo para Envío Estándar
-        } else if (metodoEnvio === '2') {
-            costoEnvio = 3850; // Costo para Envío Exprés
-        }
+        // Calcula el total de los productos del carrito
+        var totalProductos = <?= array_reduce($productos, function ($carry, $producto) {
+                                    return $carry + $producto['price'] * $producto['qty'];
+                                }, 0) ?>;
 
-        // Muestra el costo de envío
-        costoEnvioContainer.textContent = '$' + costoEnvio.toFixed(2);
-        costoEnvioHidden.value = costoEnvio.toFixed(2);
-    });
+        // Calcula el costo total
+        var costoTotal = totalProductos + costoEnvio;
+
+        // Muestra el costo total
+        document.getElementById('costo_total').textContent = '$' + costoTotal.toFixed(2);
+        document.getElementById('costo_total_hidden').value = costoTotal.toFixed(2);
+    }
+
+    document.getElementById('metodo_envio').addEventListener('change', calcularCostoTotal);
+
+    // Calcula al cargar la página
+    window.addEventListener('DOMContentLoaded', calcularCostoTotal);
 </script>

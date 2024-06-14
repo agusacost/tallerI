@@ -794,3 +794,140 @@
   justify-content: center;
   margin-bottom: 1rem;
 }
+
+/* General Styles */
+.bg-comprobante {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.comprobante-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.comprobante-title {
+  text-align: center;
+  color: #133839;
+  margin-bottom: 1.5rem;
+}
+
+.comprobante-subtitle {
+  color: #133839;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.comprobante-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.comprobante-th,
+.comprobante-td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.comprobante-th {
+  background-color: #133839;
+  color: #fff;
+}
+
+.comprobante-td {
+  background-color: #fff;
+}
+
+.comprobante-total-container {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.comprobante-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.comprobante-info {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Button Styles */
+.comprobante-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 2rem;
+  background-color: #133839;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.comprobante-button:hover {
+  background-color: #28a745;
+  transition: 0.3s ease-in;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .comprobante-container {
+    padding: 1rem;
+  }
+
+  .comprobante-table th,
+  .comprobante-table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .comprobante-total-container,
+  .comprobante-info {
+    text-align: center;
+  }
+
+  .comprobante-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.comprobante-vuelta {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #133839;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.comprobante-vuelta:hover {
+  background-color: #cf5614;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .comprobante-table th,
+  .comprobante-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .comprobante-button {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
