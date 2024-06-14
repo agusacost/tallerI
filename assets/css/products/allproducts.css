@@ -905,6 +905,27 @@
   }
 }
 
+.comprobante-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.comprobante-col i {
+  color: #133839;
+  margin-right: 0.5rem;
+}
+
+.comprobante-col a {
+  color: #000;
+}
+
+.comprobante-col a:hover {
+  color: #133839;
+  transition: 0.3s ease;
+}
+
 .comprobante-vuelta {
   margin-top: 2rem;
   padding: 1rem;

@@ -23,7 +23,7 @@
                         <th scope="col">Total</th>
                         <th scope="col">Tipo Pago</th>
                         <th scope="col">Tarjeta</th>
-
+                        <th scope="col">Comprobante</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,12 +35,18 @@
                             <td><?php echo $venta['total_venta']; ?></td>
                             <td><?php echo $venta['tipoPago_descripcion']; ?></td>
                             <td><?php echo $venta['tarjeta']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-            </table>
-            <div class="pagination-links">
-                <?= $pager->links('group1', 'my_pagination2') ?>
-            </div>
+                            <td>
+                                <div class="comprobante-col">
+                                    <a href="<?= base_url('/ventas/comprobante/' . $venta['id_venta']) ?>"><i class="fa-regular fa-file"></i>Comprobante</a>
+                                </div>
+                            </td>
         </div>
+        </tr>
+    <?php endforeach; ?>
+    </table>
+    <div class="pagination-links">
+        <?= $pager->links('group1', 'my_pagination2') ?>
+    </div>
+    </div>
     </div>
 </main>
