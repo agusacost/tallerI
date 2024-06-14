@@ -50,7 +50,7 @@
           <!-- Si es admin -->
           <?php if ($session->get('id_perfil') == 1) : ?>
             <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/contact_list') ?>">Consultas</a></li>
-            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/ventas_list') ?>">Ventas</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/ventas_list/pagina/1') ?>">Ventas</a></li>
             <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar') ?>">Productos</a></li>
             <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
           <?php else : ?>

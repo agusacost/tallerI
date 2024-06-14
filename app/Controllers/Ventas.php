@@ -39,11 +39,12 @@ class Ventas extends BaseController
         echo view('components/footer');
     }
 
-    public function ventasUser($id)
+    public function ventasUser($id, $page = 1)
     {
         $ventas = new VentasCabecera();
-        $datos['ventas'] = $ventas->where('usuario_id', $id)->orderBy('id_venta', 'ASC')->findAll();
-
+        $perPage = 9;
+        $datos['ventas'] = $ventas->where('usuario_id', $id)->orderBy('id_venta', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['pager'] = $ventas->pager;
         $usuario = new User();
         $tipoPago = new TipoPago();
 
