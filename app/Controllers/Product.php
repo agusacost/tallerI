@@ -6,6 +6,11 @@ use App\Models\Products;
 
 class Product extends BaseController
 {
+    public function __construct()
+    {
+        helper(['url', 'form']);
+        $this->pager = \Config\Services::pager();
+    }
     public function index()
     {
         $product = new Products();
@@ -16,24 +21,32 @@ class Product extends BaseController
         echo view('Products/listar', $datos);
         echo view('components/footer');
     }
-    public function publicProducts()
+    public function publicProducts($page = 1)
     {
         $product = new Products();
         //consulta
-        $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
+
+        $perPage = 9;
+
+        $datos['product'] = $product->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['pager'] = $product->pager;
         echo view('components/header');
         echo view('Products/publicProducts', $datos);
         echo view('components/footer');
     }
-    public function filtrarProductos()
+    public function filtrarProductos($page = 1)
     {
         $product = new Products();
+        $perPage = 9;
         $categoria = $this->request->getPost('id_categoria');
+
         if ($categoria) {
-            $datos['product'] = $product->where('id_categoria', $categoria)->orderBy('id', 'ASC')->findAll();
+            $datos['product'] = $product->where('id_categoria', $categoria)->paginate($perPage, 'group1', $page);
         } else {
-            $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
+            $datos['product'] = $product->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
         }
+
+        $datos['pager'] = $product->pager;
 
         echo view('components/header');
         echo view('Products/publicProducts', $datos);

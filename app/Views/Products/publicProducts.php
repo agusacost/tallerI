@@ -5,9 +5,16 @@
             <div class="table-title">
                 <h1>Nuestros productos!</h1>
             </div>
+            <?php if (session()->getFlashdata('mensaje')) : ?>
+                <div class="mensaje-agregado">
+                    <p>
+                        <?= session()->getFlashdata('mensaje') ?>
+                    </p>
+                </div>
+            <?php endif; ?>
             <!--Filtros: TODO Centrar -->
             <div class="productoFiltro">
-                <form action="<?= base_url('productos/filtrar') ?>" method="post">
+                <form action="<?= base_url('productos/filtrar/1') ?>" method="post">
                     <select name="id_categoria">
                         <option value="">Todos</option>
                         <option value="3" <?php if (isset($_POST['id_categoria']) && $_POST['id_categoria'] == '3') echo 'selected'; ?>>Cereales</option>
@@ -16,6 +23,9 @@
                     </select>
                     <button type="submit" class="btn-filtrar">Filtrar</button>
                 </form>
+            </div>
+            <div class="pagination-links">
+                <?= $pager->links('group1', 'my_pagination') ?>
             </div>
             <div class="productContainer">
                 <?php foreach ($product as $producto) : ?>
@@ -47,6 +57,9 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+        <div class="pagination-links">
+            <?= $pager->links('group1', 'my_pagination') ?>
         </div>
     </div>
 </main>

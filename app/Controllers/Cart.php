@@ -59,7 +59,7 @@ class Cart extends BaseController
 
         $this->cart->insert($data);
 
-        return redirect()->to(base_url('productos'));
+        return redirect()->back()->with('mensaje', 'Producto agregado correctamente');
     }
 
     public function update()

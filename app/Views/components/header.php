@@ -41,7 +41,7 @@
   <?php $session = session(); ?>
   <header>
     <!-- Nav -->
-    <nav>
+    <nav class="header-nav">
       <a class="navbar-brand" href="<?= base_url() ?>">
         <img src="<?= base_url('assets/img/logo.jpeg') ?>" alt=" logo" width="200">
       </a>
@@ -49,29 +49,31 @@
         <ul id="menuList" class="menu-list">
           <!-- Si es admin -->
           <?php if ($session->get('id_perfil') == 1) : ?>
-            <li><a href="<?= base_url('/contact_list') ?>">Consultas</a></li>
-            <li><a href="<?= base_url('/ventas_list') ?>">Ventas</a></li>
-            <li><a href="<?= base_url('/listar') ?>">Productos</a></li>
-            <li><a href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/contact_list') ?>">Consultas</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/ventas_list') ?>">Ventas</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar') ?>">Productos</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
           <?php else : ?>
             <!-- Usuario user -->
-            <li><a href="<?= base_url('/productos') ?>">Productos</a></li>
-            <li><a href="<?= base_url('/profile') ?>">Perfil</a></li>
+            <li class="menu-list-li"><a href="<?= base_url('/productos/pagina/1') ?>">Productos</a></li>
+            <li class="menu-list-li"><a href="<?= base_url('/profile') ?>">Perfil</a></li>
             <div class="nav-carrito">
               <a href="<?= base_url('/carrito/view') ?>">
                 <i class="fa-solid fa-cart-shopping"></i>
               </a>
             </div>
           <?php endif; ?>
-          <li><a href="<?= base_url('/logout') ?>"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+          <div class="nav-carrito">
+            <li><a href="<?= base_url('/logout') ?>"><i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+          </div>
         </ul>
       <?php else : ?>
         <ul id="menuList" class="menu-list">
-          <li><a href="<?= base_url() ?>">Home</a></li>
-          <li><a href="<?= base_url('/productos') ?>">Productos</a></li>
-          <li><a href="<?= base_url('/about') ?>">Quiénes somos</a></li>
-          <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
-          <li><a href="<?= base_url('/login') ?>">Login</a></li>
+          <li class="menu-list-li"><a href="<?= base_url() ?>">Home</a></li>
+          <li class="menu-list-li"><a href="<?= base_url('/productos/pagina/1') ?>">Productos</a></li>
+          <li class="menu-list-li"><a href="<?= base_url('/about') ?>">Quiénes somos</a></li>
+          <li class="menu-list-li"><a href="<?= base_url('/contact') ?>">Contacto</a></li>
+          <li class="menu-list-li"><a href="<?= base_url('/login') ?>">Login</a></li>
         </ul>
       <?php endif ?>
       <!-- Usuarios logueados -->

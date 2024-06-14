@@ -5,37 +5,29 @@
   <div class="content-banner">
     <p>Mantenete natural</p>
     <h2>Productos 100% organicos<br>Libre de conservantes</h2>
-    <a href="<?= base_url('productos') ?>">Comprar ahora</a>
+    <a href="<?= base_url('/productos/pagina/1') ?>">Comprar ahora</a>
   </div>
 </section>
 <!-- endbanner -->
 <main class="main-content">
   <!-- categories -->
-  <section class="container">
-    <div class="categorias-texto">
-      <h1 class="text-center">Categorías</h1>
-    </div>
-    <div class="top-categories">
-      <div class="card-category category-cereales">
-        <p>Cereales</p>
-        <a href="<?= base_url('productos') ?>">
-          <span>Ver mas</span>
-        </a>
-      </div>
-      <div class="card-category category-frutos-secos">
-        <p>Frutos Secos</p>
-        <a href="<?= base_url('productos') ?>">
-          <span>Ver mas</span>
-        </a>
-      </div>
-      <div class="card-category category-suplementos">
-        <p>Suplementos</p>
-        <a href="<?= base_url('productos') ?>">
-          <span>Ver mas</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  <div class="categorias-texto">
+    <h1 class="text-center">Categorías</h1>
+  </div>
+  <div class="top-categories">
+    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-cereales">
+      <p>Cereales</p>
+      <span>Ver mas</span>
+    </a>
+    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-frutos-secos">
+      <p>Frutos Secos</p>
+      <span>Ver mas</span>
+    </a>
+    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-suplementos">
+      <p>Suplementos</p>
+      <span>Ver mas</span>
+    </a>
+  </div>
 
   <!-- cards -->
   <section class="container container-features">

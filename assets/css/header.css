@@ -8,14 +8,14 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
+  /* height: 100%;
+  width: 100%; */
   background: #fffceb;
   font-family: "Varela Round", sans-serif;
   font-style: normal;
 }
 
-nav {
+.header-nav {
   padding: 10px 30px;
   display: flex;
   align-items: center;
@@ -30,46 +30,57 @@ nav {
   cursor: pointer;
 }
 
-nav ul {
-  display: flex;
-  gap: 3rem;
-}
+/* nav ul {
+} */
 
-nav ul li {
+.menu-list-li {
   list-style-type: none;
   margin-bottom: 1rem;
 }
 
-nav ul li a {
+.menu-list-li a {
   text-decoration: none;
+  padding: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
   color: #a6d7ba;
 }
 
-a:hover {
-  text-decoration: underline;
+.menu-list-li a:hover {
+  text-decoration: none;
   color: #cf5614;
+  transition: 0.3s ease;
 }
 
 .menu-list {
+  display: flex;
+  gap: 3rem;
   margin-bottom: 20px;
 }
 
 .menu-icon {
   display: none;
+  color: #a6d7ba;
+  font-size: 30px;
+  cursor: pointer;
 }
-
+.nav-carrito {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.7rem;
+}
 .nav-carrito i {
   color: #a6d7ba;
   font-size: 25px;
   cursor: pointer;
+  padding: 1rem;
 }
 
-.menu-icon i {
-  color: #a6d7ba;
-  font-size: 30px;
-  cursor: pointer;
+.nav-carrito i:hover {
+  color: #cf5614;
+  transition: 0.3s ease;
 }
 
 .dropdown {
@@ -138,18 +149,9 @@ a:hover {
 .menu-dropdown li:hover {
   background-color: #cf5614;
 }
-/* js */
-.active {
-  background: #cf5614;
-}
-/* js */
-.menu-open {
-  display: block;
-  opacity: 1;
-}
 
 @media (max-width: 768px) {
-  nav ul {
+  .menu-list {
     position: absolute;
     top: 70px;
     left: 0;
@@ -162,7 +164,7 @@ a:hover {
     z-index: 1000;
   }
 
-  nav ul li {
+  .menu-list-li {
     padding: 10px;
   }
 

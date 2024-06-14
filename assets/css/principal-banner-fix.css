@@ -1,6 +1,6 @@
 .container {
   width: 100%; /* Opcional: ajustar el ancho según el diseño */
-  max-width: 1200px; /* Ancho máximo del contenedor */
+  max-width: 1000px; /* Ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
   padding: 0 20px;
 }
@@ -34,6 +34,7 @@
 }
 
 .banner {
+  width: 100%;
   position: relative;
   background-image: linear-gradient(100deg, #00000000, #00000020),
     url("../img/banner.jpg");

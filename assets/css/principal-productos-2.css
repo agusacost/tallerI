@@ -3,7 +3,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
   margin-bottom: 4rem;
 }
 .card .content .row,
@@ -73,7 +72,6 @@ button:last-child:hover {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 0.5rem;
-    margin: 2rem 2rem 0 10rem;
     width: 450px;
     height: 1300px;
   }
