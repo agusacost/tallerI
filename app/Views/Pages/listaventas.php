@@ -1,12 +1,19 @@
 <main>
     <div class="container">
+        <?php $session = session(); ?>
         <div class="bg-listar">
             <div class="table-title">
-                <h1>Ventas Realizadas</h1>
+                <?php if ($session->get('id_perfil') == 1) : ?>
+                    <h1>Ventas Realizadas</h1>
+                <?php else : ?>
+                    <h1>Tus Compras</h1>
+                <?php endif; ?>
             </div>
-            <div class="table-button">
-                <a href="<?= base_url('/envios_list') ?>" class="">Ver envios</a>
-            </div>
+            <?php if ($session->get('id_perfil') == 1) : ?>
+                <div class="table-button">
+                    <a href="<?= base_url('/envios_list') ?>" class="">Ver envios</a>
+                </div>
+            <?php endif; ?>
             <table class="table">
                 <thead>
                     <tr>
@@ -31,6 +38,9 @@
                         </tr>
                     <?php endforeach; ?>
             </table>
+            <div class="pagination-links">
+                <?= $pager->links('group1', 'my_pagination2') ?>
+            </div>
         </div>
     </div>
 </main>
