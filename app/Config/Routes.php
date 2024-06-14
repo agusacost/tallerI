@@ -74,7 +74,6 @@ $routes->post('carrito/remove', 'Cart::remove', ['filter' => 'authUser']); //vac
 //comprar 
 $routes->post('ventas/confirmar', 'Cart::proceder', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
 $routes->post('ventas/comprar', 'Cart::comprar', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
-$routes->get('ventas/success', 'Cart::success', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
 
 //consultas
 $routes->get('/contact', 'Consulta');
@@ -83,8 +82,10 @@ $routes->get('/contact_list', 'Consulta::listaConsulta', ['filter' => 'authAdmin
 $routes->get('/borrar_consulta/(:num)', 'Consulta::borrarConsulta/$1', ['filter' => 'authAdmin']);
 
 //ventas
-$routes->get('/ventas_list', 'Ventas',  ['filter' => 'authAdmin']);
+$routes->get('/ventas_list/pagina/(:num)', 'Ventas::index/$1',  ['filter' => 'authAdmin']);
 $routes->get('/ventas/usuario/(:num)', 'Ventas::ventasUser/$1',  ['filter' => 'authUser']);
+$routes->get('ventas/comprobante/(:num)', 'Ventas::comprobante/$1', ['filter' => 'authUser']);
+
 //envios
 $routes->get('/envios_list', 'Envios',  ['filter' => 'authAdmin']);
 
