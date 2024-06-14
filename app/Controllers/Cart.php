@@ -186,7 +186,7 @@ class Cart extends BaseController
             $cart->destroy();
 
             // Redirigir a una página de éxito
-            return redirect()->to('ventas/success')->with('mensaje', 'La compra se ha realizado con éxito.');
+            return redirect()->to('/ventas/comprobante/' . $venta_id)->with('mensaje', 'La compra se ha realizado con éxito.');
         } catch (\Exception $e) {
             $db->transRollback();
             return redirect()->back()->with('mensaje', 'Error en la compra' . $e->getMessage());
