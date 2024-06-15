@@ -1,0 +1,7 @@
+Usuario de tipo administrador:
+correo: admin@test.com	
+pass: 123456
+
+Usuario comprador:
+correo: su@test.com
+pass: 123456
