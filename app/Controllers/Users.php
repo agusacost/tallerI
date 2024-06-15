@@ -76,6 +76,9 @@ class Users extends BaseController
             if ($this->request->getPost('password')) {
                 $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             }
+            if (!$this->request->getPost('id_perfil')) {
+                $data['id_perfil'] = 2;
+            }
             if ($this->request->getPost('baja') === 'si') {
                 $data['baja'] = 'NO';
             } else {
