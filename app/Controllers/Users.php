@@ -76,6 +76,11 @@ class Users extends BaseController
             if ($this->request->getPost('password')) {
                 $data['password'] = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
             }
+            if ($this->request->getPost('baja') === 'si') {
+                $data['baja'] = 'NO';
+            } else {
+                $data['baja'] = 'SI';
+            }
 
             if ($id) {
                 $formModel->update($id, $data);
@@ -87,13 +92,16 @@ class Users extends BaseController
                         'surname' => $data['surname'],
                         'email' => $data['email'],
                         'id_perfil' => $data['id_perfil'],
+                        'baja' => $data['baja'],
                         'isLoggedIn' => true,
                     ];
+
                     $session->set($sess_data);
                 }
                 return redirect()->back()->with('success', 'Usuario actualizado');
             } else {
                 $data['id_perfil'] = 2;
+                $data['baja'] = 'NO';
                 $formModel->save($data);
                 return redirect()->to('/login')->with('success', 'Registrado correctamente');
             }
@@ -101,10 +109,12 @@ class Users extends BaseController
     }
     public function borrar($id = null)
     {
-        $users = new User();
-        $data['users']  = $users->where('id', $id)->first();
+        $model = new User();
 
-        $users->where('id', $id)->delete($id);
-        return $this->response->redirect(site_url('/listar_users'));
+        // Marcar usuario como "de baja"
+        $model->marcarComoBaja($id);
+
+        // Redireccionar a la lista de usuarios con mensaje de éxito
+        return redirect()->back()->with('success', 'Usuario marcado como de baja exitosamente.');
     }
 }

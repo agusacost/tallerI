@@ -1,5 +1,6 @@
 <main>
     <section class="container bg-login">
+
         <div class="wrapper-register">
             <?php $validation = \Config\Services::validation(); ?>
             <h1><?= isset($user) ? 'Editar Usuario' : 'Registrate!'; ?></h1>
@@ -50,16 +51,29 @@
                         </div>
                     <?php } ?>
                     <?php if (isset($user)) : ?>
-                        <small>Deje en blanco si no desea cambiar la contraseña</small>
+                        <small>*Deje en blanco si no desea cambiar la contraseña</small>
                     <?php endif; ?>
                 </label>
                 <?php if (isset($user)) : ?>
-                    <label for="id_perfil">Tipo de usuario:
-                        <select name="id_perfil" id="id_perfil" required>
-                            <option value="1" <?= isset($user) && $user['id_perfil'] == 1 ? 'selected' : '' ?>>Admin</option>
-                            <option value="2" <?= isset($user) && $user['id_perfil'] == 2 ? 'selected' : '' ?>>User</option>
-                        </select>
-                    </label>
+                    <?php if (session()->get('id_perfil') == 1) : ?>
+                        <label for="id_perfil">Tipo de usuario:
+                            <select name="id_perfil" id="id_perfil" required>
+                                <option value="1" <?= isset($user) && $user['id_perfil'] == 1 ? 'selected' : '' ?>>Admin</option>
+                                <option value="2" <?= isset($user) && $user['id_perfil'] == 2 ? 'selected' : '' ?>>User</option>
+                            </select>
+                        </label>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if (isset($user)) : ?>
+                    <?php if ($user['baja'] === 'SI') : ?>
+                        <label for="baja">El usuario esta dado de baja. Dar de alta
+                            <input type="checkbox" name="baja" value="si">
+                        </label>
+                    <?php else : ?>
+                        <label for="baja">Dar de baja el usuario
+                            <input type="checkbox" name="baja" value="no">
+                        </label>
+                    <?php endif; ?>
                 <?php endif; ?>
                 <button type="submit"><?= isset($user) ? 'Actualizar Usuario' : 'Registrarse' ?></button>
             </form>

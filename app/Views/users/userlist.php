@@ -12,6 +12,7 @@
                         <th scope="col">Apellido</th>
                         <th scope="col">Email</th>
                         <th scope="col">Tipo</th>
+                        <th scope="col">Baja</th>
                         <th scope="col">Acciones</th>
 
                     </tr>
@@ -28,7 +29,9 @@
                                 } else {
                                     echo 'User';
                                 } ?></td>
+                            <td><?php echo $user['baja']; ?></td>
                             <td>
+
 
                                 <div class="actions">
                                     <div class="edit">
