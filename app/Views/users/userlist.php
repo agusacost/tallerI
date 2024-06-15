@@ -7,6 +7,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Nro</th>
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
@@ -18,9 +19,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $index = 1; ?>
                     <?php foreach ($users as $user) : ?>
                         <tr>
-                            <th scope="row"><?php echo $user['id']; ?></th>
+                            <th scope="row"><?php echo $index++; ?></th>
+                            <td><?php echo $user['id']; ?></td>
                             <td><?php echo $user['name']; ?></td>
                             <td><?php echo $user['surname']; ?></td>
                             <td><?php echo $user['email']; ?></td>
