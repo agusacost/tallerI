@@ -1,58 +1,58 @@
-.condiciones{
-    background-color: #fff;
-    border-radius: 6px;
-    padding: 30px 60px 30px 40px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    margin: 2rem;
+.condiciones {
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 30px 60px 30px 40px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 2rem;
 }
 
-.condiciones h1{
-    margin: 1rem;
-    text-align: center;
-    color: #133839;
+.condiciones h1 {
+  margin: 1rem;
+  text-align: center;
+  color: #133839;
 }
 
-.condiciones h3{
-    color: #133839;
-    font-size: 20px;
-    font-weight: 600;
+.condiciones h3 {
+  color: #133839;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.condiciones h4{
-    color: #133839;
-    font-size: 18px;
-    font-weight: 600;
+.condiciones h4 {
+  color: #133839;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.condiciones p{
-    text-align: justify;
-    margin:1rem 0;
-    color: #777;
-    font-size: 15px;
+.condiciones p {
+  text-align: justify;
+  margin: 1rem 0;
+  color: #777;
+  font-size: 15px;
 }
 
-.condiciones p span{
-    color: #777;
-    font-weight: 700;
+.condiciones p span {
+  color: #777;
+  font-weight: 700;
 }
 
-.condiciones ul li{
-    margin: 1rem 0;
-    color: #777;
-    font-size: 15px;
-    text-align: justify;
+.condiciones ul li {
+  margin: 1rem 0;
+  color: #777;
+  font-size: 15px;
+  text-align: justify;
 }
 
-.condiciones ul li span{
-    color: #777;
-    font-weight: 700;
+.condiciones ul li span {
+  color: #777;
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
-    .condiciones{
-        margin-left: 6.5rem;
-    }
-    .condiciones p{
-        text-align: left;
-    }
+  .condiciones {
+    margin: 0 auto;
+  }
+  .condiciones p {
+    text-align: left;
+  }
 }

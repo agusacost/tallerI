@@ -71,6 +71,7 @@
   .wrapper {
     width: 360px;
     height: 500px;
+    margin: 0 auto;
     padding: 2rem 1rem;
     background-color: #fff;
     border-radius: 10px;
