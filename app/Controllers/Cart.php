@@ -58,6 +58,8 @@ class Cart extends BaseController
         );
 
         $this->cart->insert($data);
+        $totalItems = $this->cart->totalItems();
+        session()->set('totalItems', $totalItems);
 
         return redirect()->back()->with('mensaje', 'Producto agregado correctamente');
     }
@@ -89,6 +91,8 @@ class Cart extends BaseController
         } else {
             $this->cart->remove($rowid);
         }
+        $totalItems = session()->get('totalItems') - 1;
+        session()->set('totalItems', $totalItems);
 
         return redirect()->back()->withInput();
     }
@@ -184,6 +188,9 @@ class Cart extends BaseController
 
             $db->transCommit();
             $cart->destroy();
+
+            $totalItems = 0;
+            session()->set('totalItems', $totalItems);
 
             // Redirigir a una página de éxito
             return redirect()->to('/ventas/comprobante/' . $venta_id)->with('mensaje', 'La compra se ha realizado con éxito.');

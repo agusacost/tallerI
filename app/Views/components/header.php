@@ -38,7 +38,9 @@
 </head>
 
 <body>
-  <?php $session = session(); ?>
+  <?php $session = session();
+  $totalItems = session()->get('totalItems') ?? 0;
+  ?>
   <header>
     <!-- Nav -->
     <nav class="header-nav">
@@ -59,7 +61,7 @@
             <li class="menu-list-li"><a href="<?= base_url('/profile') ?>">Perfil</a></li>
             <div class="nav-carrito">
               <a href="<?= base_url('/carrito/view') ?>">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-cart-shopping"></i><span class="badge"><?= $totalItems ?></span>
               </a>
             </div>
           <?php endif; ?>
@@ -96,3 +98,12 @@
   </script>
   <script src="https://kit.fontawesome.com/e98e713854.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <style>
+    .badge {
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.2rem;
+      background-color: #cf5614;
+      border-radius: 100%;
+    }
+  </style>
