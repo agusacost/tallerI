@@ -11,11 +11,13 @@ class Product extends BaseController
         helper(['url', 'form']);
         $this->pager = \Config\Services::pager();
     }
-    public function index()
+    public function index($page = 1)
     {
         $product = new Products();
         //consulta a bd
-        $datos['product'] = $product->orderBy('id', 'ASC')->findAll();
+        $perPage = 5;
+        $datos['product'] = $product->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['pager'] = $product->pager;
 
         echo view('components/header');
         echo view('Products/listar', $datos);
@@ -28,7 +30,7 @@ class Product extends BaseController
 
         $perPage = 9;
 
-        $datos['product'] = $product->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['product'] = $product->where('activo', 'SI')->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
         $datos['pager'] = $product->pager;
         echo view('components/header');
         echo view('Products/publicProducts', $datos);
@@ -41,7 +43,7 @@ class Product extends BaseController
         $categoria = $this->request->getPost('id_categoria');
 
         if ($categoria) {
-            $datos['product'] = $product->where('id_categoria', $categoria)->paginate($perPage, 'group1', $page);
+            $datos['product'] = $product->where('id_categoria', $categoria)->where('activo', 'SI')->paginate($perPage, 'group1', $page);
         } else {
             $datos['product'] = $product->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
         }
@@ -63,6 +65,7 @@ class Product extends BaseController
             'id_categoria' => $this->request->getPost('id_categoria'),
             'cantidad' => $this->request->getPost('cantidad'),
             'precio' => $this->request->getPost('precio'),
+            'activo' => 'SI',
         ];
 
         //verificar existencia
@@ -109,13 +112,17 @@ class Product extends BaseController
     public function borrar($id = null)
     {
         $product = new Products();
-        $dataProduct = $product->where('id', $id)->first();
-
-        $route = ("assets/img/" . $dataProduct['imagen']);
-        unlink($route);
+        $product->setInactivo($id);
 
 
-        $product->where('id', $id)->delete($id);
-        return $this->response->redirect(site_url('/listar'));
+        return redirect()->back()->with('msg', 'Producto inactivo de forma exitosa');
+    }
+    public function activo($id = null)
+    {
+        $product = new Products();
+        $product->setActivo($id);
+
+
+        return redirect()->back()->with('msg', 'Producto Activado de forma exitosa');
     }
 }

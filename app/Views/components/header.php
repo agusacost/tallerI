@@ -53,8 +53,8 @@
           <?php if ($session->get('id_perfil') == 1) : ?>
             <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/contact_list') ?>">Consultas</a></li>
             <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/ventas_list/pagina/1') ?>">Ventas</a></li>
-            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar') ?>">Productos</a></li>
-            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar_users') ?>">Perfiles</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar/pagina/1') ?>">Productos</a></li>
+            <li class="menu-list-li"><a class="menu-list-a" href="<?= base_url('/listar_users/pagina/1') ?>">Perfiles</a></li>
           <?php else : ?>
             <!-- Usuario user -->
             <li class="menu-list-li"><a href="<?= base_url('/productos/pagina/1') ?>">Productos</a></li>

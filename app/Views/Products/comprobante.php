@@ -39,7 +39,11 @@
             <!-- Botón para generar y descargar el PDF -->
             <button type="button" class="comprobante-button" id="generarPDFButton" onclick="generarPDF()">Generar PDF</button>
         </div>
-        <a class="comprobante-vuelta" href="<?= base_url('/productos/pagina/1') ?>">Volver al catalogo!</a>
+        <?php if (session()->get('id_perfil') == 2) : ?>
+            <a class="comprobante-vuelta" href="<?= base_url('/productos/pagina/1') ?>">Volver al catalogo!</a>
+        <?php else : ?>
+            <a class="comprobante-vuelta" href="<?= base_url('/ventas_list/pagina/1') ?>">Volver</a>
+        <?php endif; ?>
     </div>
 </main>
 

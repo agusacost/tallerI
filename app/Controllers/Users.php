@@ -10,10 +10,12 @@ class Users extends BaseController
     {
         helper(['url', 'form']);
     }
-    public function index()
+    public function index($page = 1)
     {
         $users = new User();
-        $datos['users'] = $users->orderBy('id', 'ASC')->findAll();
+        $perPage = 10;
+        $datos['users'] = $users->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['pager'] = $users->pager;
 
         echo view('components/header');
         echo view('users/userlist', $datos);

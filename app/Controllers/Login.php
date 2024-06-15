@@ -32,29 +32,34 @@ class Login extends BaseController
             $pass = $data['password'];
 
             if (password_verify($password, $pass)) {
-                $sess_data = [
-                    'id' => $data['id'],
-                    'name' => $data['name'],
-                    'surname' => $data['surname'],
-                    'email' => $data['email'],
-                    'id_perfil' => $data['id_perfil'],
-                    'isLoggedIn' => true,
-                ];
+                if ($data['baja'] == 'NO') {
 
-                $session->set($sess_data);
+                    $sess_data = [
+                        'id' => $data['id'],
+                        'name' => $data['name'],
+                        'surname' => $data['surname'],
+                        'email' => $data['email'],
+                        'id_perfil' => $data['id_perfil'],
+                        'isLoggedIn' => true,
+                    ];
 
-                $session->setFlashdata('msg', 'Bienvenido');
-                if ($sess_data['id_perfil'] == 1) {
-                    return redirect()->to(base_url('/listar'));
+                    $session->set($sess_data);
+
+                    $session->setFlashdata('msg', 'Bienvenido');
+                    if ($sess_data['id_perfil'] == 1) {
+                        return redirect()->to(base_url('/listar/pagina/1'));
+                    } else {
+                        return redirect()->to(base_url('/'));
+                    }
                 } else {
-                    return redirect()->to(base_url('/'));
+                    return redirect()->to('/login')->with('msg', 'Tu cuenta está desactivada. Contacta al administrador.');
                 }
             } else {
                 $session->setFlashdata('msg', 'Clave incorrecta');
                 return redirect()->to('/login');
             }
         } else {
-            $session->setFlashdata('msg', 'El email es incorrecto');
+            $session->setFlashdata('msg', 'Completa los campos');
             return redirect()->to('/login');
         }
     }

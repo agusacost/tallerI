@@ -8,7 +8,7 @@ class Products extends Model
 {
     protected $table      = 'product';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre', 'descripcion', 'imagen', 'id_categoria', 'cantidad', 'precio'];
+    protected $allowedFields = ['nombre', 'descripcion', 'imagen', 'id_categoria', 'cantidad', 'precio', 'activo'];
 
     public function getCantidad($id)
     {
@@ -20,5 +20,14 @@ class Products extends Model
     {
         $data = ['cantidad' => $nueva_cantidad];
         $this->update($id, $data);
+    }
+
+    public function setInactivo($id)
+    {
+        return $this->update($id, ['activo' => 'NO']);
+    }
+    public function setActivo($id)
+    {
+        return $this->update($id, ['activo' => 'SI']);
     }
 }

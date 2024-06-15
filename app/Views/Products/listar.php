@@ -4,6 +4,11 @@
       <div class="table-title">
         <h1>Stock de productos</h1>
       </div>
+      <?php if (session()->getFlashdata('msg')) : ?>
+        <div class="success-form">*
+          <?= session()->getFlashdata('msg') ?>
+        </div>
+      <?php endif; ?>
       <div class="table-button">
         <a href="<?= base_url('/producto') ?>" class="">Agregar un producto</a>
       </div>
@@ -17,6 +22,7 @@
             <th scope="col">Categoria</th>
             <th scope="col">Cantidad</th>
             <th scope="col">Precio</th>
+            <th scope="col">Activo</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -29,13 +35,15 @@
 
 
               <td>
-                <img src="assets\img\<?php echo $producto['imagen']; ?>" alt="producto" width="100">
+                <img src=" <?php echo base_url('assets/img/' . $producto['imagen']) ?>" alt="producto" width="100">
+
               </td>
 
 
               <td><?php echo $producto['id_categoria']; ?></td>
               <td><?php echo $producto['cantidad']; ?></td>
               <td>$ <?php echo  $producto['precio']; ?></td>
+              <td> <?php echo  $producto['activo']; ?></td>
               <td>
 
                 <div class="actions">
@@ -43,16 +51,28 @@
                     <!-- editar -->
                     <a href="<?= base_url('producto/' . $producto['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
                   </div>
-                  <div class="delete">
-                    <!-- borrar -->
-                    <a href="<?= base_url('borrar/' . $producto['id']); ?>" class=""><i class="fa-solid fa-trash"></i></a>
-                  </div>
+                  <?php if (isset($producto)) : ?>
+                    <?php if ($producto['activo'] == 'NO') : ?>
+                      <div class="edit">
+                        <!-- editar -->
+                        <a href="<?= base_url('activo/' . $producto['id']); ?>" class=""><i class="fa-solid fa-check"></i></a>
+                      </div>
+                    <?php else : ?>
+                      <div class="delete">
+                        <!-- borrar -->
+                        <a href="<?= base_url('borrar/' . $producto['id']); ?>" class=""><i class="fa-solid fa-trash"></i></a>
+                      </div>
+                    <?php endif; ?>
+                  <?php endif; ?>
                 </div>
 
               </td>
             </tr>
           <?php endforeach; ?>
       </table>
+      <div class="pagination-links">
+        <?= $pager->links('group1', 'my_pagination3') ?>
+      </div>
     </div>
   </div>
 </main>

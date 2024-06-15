@@ -31,16 +31,10 @@
                                 } ?></td>
                             <td><?php echo $user['baja']; ?></td>
                             <td>
-
-
                                 <div class="actions">
                                     <div class="edit">
                                         <!-- editar -->
-                                        <a href="<?= base_url('edit/' . $user['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </div>
-                                    <div class="delete">
-                                        <!-- borrar -->
-                                        <a href="<?= base_url('borrar_user/' . $user['id']); ?>" class=""><i class="fa-solid fa-trash"></i></a>
+                                        <a href="<?= base_url('edit/' . $user['id']); ?>" class=""><i class="fa-solid fa-pen-to-square"></i>Editar</a>
                                     </div>
                                 </div>
 
@@ -48,6 +42,9 @@
                         </tr>
                     <?php endforeach; ?>
             </table>
+            <div class="pagination-links">
+                <?= $pager->links('group1', 'user_pagination') ?>
+            </div>
         </div>
     </div>
 </main>

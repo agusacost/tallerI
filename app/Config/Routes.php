@@ -40,7 +40,7 @@ $routes->get('/commerce', 'Home::commerce');
 $routes->get('/politics', 'Home::politics');
 
 //users
-$routes->get('/listar_users', 'Users', ['filter' => 'authAdmin']);
+$routes->get('/listar_users/pagina/(:num)', 'Users::index/$1', ['filter' => 'authAdmin']);
 $routes->get('/borrar_user/(:num)', 'Users::borrar/$1', ['filter' => 'authAdmin']);
 $routes->get('/edit/(:num)', 'Users::form/$1', ['filter' => 'authUser']);
 $routes->get('/profile', 'Users::profile', ['filter' => 'authUser']);
@@ -58,12 +58,13 @@ $routes->get('/logout', 'Login::logout');
 // $routes->get('/productos', 'Product::publicProducts'); //Cards todos los productos
 $routes->get('/productos/pagina/(:num)', 'Product::publicProducts/$1'); //Cards todos los productos
 $routes->post('/productos/filtrar/(:num)', 'Product::filtrarProductos/$1'); //Cards con filtro de categoria
-$routes->get('/listar', 'Product::index', ['filter' => 'authAdmin']); //listar todos los productos
+$routes->get('/listar/pagina/(:num)', 'Product::index/$1', ['filter' => 'authAdmin']); //listar todos los productos
 $routes->get('/producto', 'Product::form', ['filter' => 'authAdmin']); //form para crear
 $routes->post('/producto/save', 'Product::save', ['filter' => 'authAdmin']); //crea producto 
 $routes->get('/producto/(:num)', 'Product::form/$1', ['filter' => 'authAdmin']); //form para actualizar
 $routes->post('/producto/save/(:num)', 'Product::save/$1', ['filter' => 'authAdmin']); //actualiza producto
 $routes->get('/borrar/(:num)', 'Product::borrar/$1', ['filter' => 'authAdmin']); //borra
+$routes->get('/activo/(:num)', 'Product::activo/$1', ['filter' => 'authAdmin']); //activa
 
 //cart
 $routes->get('carrito/view', 'Cart::view', ['filter' => 'authUser']);

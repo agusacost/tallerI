@@ -5,7 +5,7 @@
                 <h1>Envios</h1>
             </div>
             <div class="table-button">
-                <a href="<?= base_url('/ventas_list') ?>" class="">Ver ventas</a>
+                <a href="<?= base_url('/ventas_list/pagina/1') ?>" class="">Ver ventas</a>
             </div>
             <table class="table">
                 <thead>
