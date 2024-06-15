@@ -65,14 +65,16 @@
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if (isset($user)) : ?>
-                    <?php if ($user['baja'] === 'SI') : ?>
-                        <label for="baja">El usuario esta dado de baja. Dar de alta
-                            <input type="checkbox" name="baja" value="si">
-                        </label>
-                    <?php else : ?>
-                        <label for="baja">Dar de baja el usuario
-                            <input type="checkbox" name="baja" value="no">
-                        </label>
+                    <?php if (session()->get('id_perfil') == 1) : ?>
+                        <?php if ($user['baja'] === 'SI') : ?>
+                            <label for="baja">El usuario esta dado de baja. Dar de alta
+                                <input type="checkbox" name="baja" value="si">
+                            </label>
+                        <?php else : ?>
+                            <label for="baja">Dar de baja el usuario
+                                <input type="checkbox" name="baja" value="no">
+                            </label>
+                        <?php endif; ?>
                     <?php endif; ?>
                 <?php endif; ?>
                 <button type="submit"><?= isset($user) ? 'Actualizar Usuario' : 'Registrarse' ?></button>

@@ -3,8 +3,8 @@
 <section class="banner">
   <?php $session = session(); ?>
   <div class="content-banner">
-    <p>Mantenete natural</p>
-    <h2>Productos 100% organicos<br>Libre de conservantes</h2>
+    <p>Mantenete Sano</p>
+    <h2>Productos 100% <br>libres de conservantes</h2>
     <a href="<?= base_url('/productos/pagina/1') ?>">Comprar ahora</a>
   </div>
 </section>

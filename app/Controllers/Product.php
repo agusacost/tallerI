@@ -30,7 +30,7 @@ class Product extends BaseController
 
         $perPage = 9;
 
-        $datos['product'] = $product->where('activo', 'SI')->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
+        $datos['product'] = $product->where('activo', 'SI')->where('cantidad >', 0)->orderBy('id', 'ASC')->paginate($perPage, 'group1', $page);
         $datos['pager'] = $product->pager;
         echo view('components/header');
         echo view('Products/publicProducts', $datos);
@@ -85,10 +85,10 @@ class Product extends BaseController
         if ($id) {
             $productId = $product->find($id);
             if (!$productId) {
-                return redirect()->to('/listar')->with('error', 'Producto no encontrado');
+                return redirect()->to('/listar/pagina/1')->with('error', 'Producto no encontrado');
             }
             $product->update($id, $data);
-            return redirect()->to('/listar')->with('mensaje', 'Producto actualizado');
+            return redirect()->to('/listar/pagina/1')->with('mensaje', 'Producto actualizado');
         } else {
             $productFound = $product->where('nombre', $data['nombre'])->first();
 
@@ -96,7 +96,7 @@ class Product extends BaseController
                 return redirect()->back()->with('error', 'Producto ya existe');
             } else {
                 $product->insert($data);
-                return redirect()->to('/listar')->with('mensaje', 'Producto actualizado con exito');
+                return redirect()->to('/listar/pagina/1')->with('mensaje', 'Producto actualizado con exito');
             }
         }
     }
