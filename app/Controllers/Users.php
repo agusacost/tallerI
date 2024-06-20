@@ -81,10 +81,10 @@ class Users extends BaseController
             if (!$this->request->getPost('id_perfil')) {
                 $data['id_perfil'] = 2;
             }
-            if ($this->request->getPost('baja') === 'si') {
-                $data['baja'] = 'NO';
-            } else {
+            if ($this->request->getPost('baja') == 'SI') {
                 $data['baja'] = 'SI';
+            } else {
+                $data['baja'] = 'NO';
             }
 
             if ($id) {
