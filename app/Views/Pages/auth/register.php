@@ -66,13 +66,13 @@
                 <?php endif; ?>
                 <?php if (isset($user)) : ?>
                     <?php if (session()->get('id_perfil') == 1) : ?>
-                        <?php if ($user['baja'] === 'SI') : ?>
+                        <?php if ($user['baja'] == 'SI') : ?>
                             <label for="baja">El usuario esta dado de baja. Dar de alta
-                                <input type="checkbox" name="baja" value="si">
+                                <input type="checkbox" name="baja" value="NO">
                             </label>
                         <?php else : ?>
                             <label for="baja">Dar de baja el usuario
-                                <input type="checkbox" name="baja" value="no">
+                                <input type="checkbox" name="baja" value="SI">
                             </label>
                         <?php endif; ?>
                     <?php endif; ?>
