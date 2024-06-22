@@ -73,7 +73,7 @@ $routes->post('carrito/update', 'Cart::update', ['filter' => 'authUser']);
 $routes->post('carrito/remove/(:any)', 'Cart::remove/$1', ['filter' => 'authUser']); //elimina un item
 $routes->post('carrito/remove', 'Cart::remove', ['filter' => 'authUser']); //vacia el carrito
 //comprar 
-$routes->post('ventas/confirmar', 'Cart::proceder', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
+$routes->get('ventas/confirmar', 'Cart::proceder', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
 $routes->post('ventas/comprar', 'Cart::comprar', ['filter' => 'authUser']); //ir a la vista de confirmacion de compra
 
 //consultas
