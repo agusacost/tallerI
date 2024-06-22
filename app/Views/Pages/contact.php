@@ -28,6 +28,11 @@
           <?php if (!empty(session()->getFlashdata('mensaje'))) : ?>
             <div class="success-form"><?= session()->getFlashdata('mensaje'); ?></div>
           <?php endif ?>
+          <?php if (session()->has('validation')) : ?>
+            <div class="alert alert-danger">
+              <?= session('validation')->listErrors() ?>
+            </div>
+          <?php endif; ?>
           <form action="<?= base_url('/contact/send') ?>" method="post">
             <div class="input-box">
               <input type="text" placeholder="Tu nombre" name="fullname" required>
