@@ -11,8 +11,8 @@
 <!-- endbanner -->
 <main class="main-content">
   <!-- categories -->
+  <h1 class="text-center">Categorías</h1>
   <div class="top-categories">
-    <h1 class="text-center">Categorías</h1>
     <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-cereales">
       <p>Cereales</p>
       <span>Ver mas</span>
