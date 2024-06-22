@@ -61,7 +61,7 @@ class Cart extends BaseController
         $totalItems = $this->cart->totalItems();
         session()->set('totalItems', $totalItems);
 
-        return redirect()->back()->with('mensaje', 'Producto agregado correctamente');
+        return redirect()->to(base_url('/productos/pagina/1'))->with('mensaje', 'Producto agregado correctamente');
     }
 
     public function update()
@@ -101,23 +101,86 @@ class Cart extends BaseController
     {
         $cart = \Config\Services::cart();
         $carrito = $this->cart->contents();
+        $validation = \Config\Services::validation();
+        $errors = $validation->getErrors();
 
         if (empty($carrito)) {
             return redirect()->back()->with('mensaje', 'El carrito esta vacio');
         }
 
         echo view('components/header');
-        echo view('Products/comprar', ['productos' => $carrito, 'cart' => $cart]);
+        echo view('Products/comprar', [
+            'productos' => $carrito,
+            'cart' => $cart,
+            'validation' => $validation,
+            'errors' => $errors
+        ]);
         echo view('components/footer');
     }
 
     public function comprar()
     {
+        $cart = \Config\Services::cart();
+        $carrito = $this->cart->contents();
         $productoModelo = new Products();
         $session = session();
         $cart = \Config\Services::cart();
         $db = \Config\Database::connect();
+        $validation = \Config\Services::validation();
+
+        // Definir reglas de validación
+        $rules = [
+            'tarjeta' => 'required|trim|min_length[16]|max_length[16]',
+            'fecha_vencimiento' => 'required',
+            'cvv' => 'required|trim|min_length[3]|min_length[3]',
+            'direccion' => 'required|trim|min_length[3]|max_length[255]',
+            'ciudad' => 'required|trim|min_length[3]|max_length[255]',
+            'provincia' => 'required|trim|min_length[3]|max_length[255]',
+            'codigo_postal' => 'required|trim|min_length[3]|max_length[10]',
+            'costo_envio' => 'required|trim|numeric',
+        ];
+
+        // Personalizar mensajes de error
+        $messages = [
+            'tarjeta' => [
+                'required' => 'El campo tarjeta es obligatorio',
+                'min_length' => 'El número de tarjeta debe tener 16 dígitos',
+                'max_length' => 'El número de tarjeta debe tener 16 dígitos'
+            ],
+            'fecha_vencimiento' => [
+                'required' => 'La fecha de vencimiento es obligatoria',
+            ],
+            'cvv' => [
+                'required' => 'El CVV es obligatorio',
+                'min_length' => 'El CVV no puede ser menor a tres digitos',
+                'max_length' => 'El CVV no puede exeder los tres digitos',
+            ],
+            'direccion' => [
+                'required' => 'El campo direccion es obligatorio',
+                'min_length' => 'Ingrese una direccion valida',
+            ],
+            'ciudad' => [
+                'required' => 'El campo ciudad es obligatorio',
+                'min_length' => 'Ingrese una ciudad valida',
+            ],
+            'provincia' => [
+                'required' => 'El campo provincia es obligatorio',
+                'min_length' => 'Ingrese una provincia valida',
+            ],
+            'codigo_postal' => [
+                'required' => 'El codigo postal es obligatorio',
+                'min_length' => 'El codigo postal debe tener al menos 3 dígitos',
+                'max_length' => 'El codigo postal debe tener hasta 10 dígitos'
+            ],
+        ];
+
+        // Verificar validación
+        if (!$this->validate($rules, $messages)) {
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
         $db->transBegin();
+
         try {
 
             $carrito = $this->cart->contents();

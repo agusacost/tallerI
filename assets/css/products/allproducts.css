@@ -964,3 +964,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.alerta-error {
+  margin-top: 1rem;
+  color: #e25959;
+  font-size: 1rem;
+}
+
+.tarjeta-data {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.tarjeta-data input {
+  width: 200px;
+}

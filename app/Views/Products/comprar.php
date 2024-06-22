@@ -1,5 +1,6 @@
 <main>
     <div class="container">
+        <?php $validation = \Config\Services::validation(); ?>
         <div class="compra-container">
             <div class="compra-title">
                 <h2>Confirmar Compra</h2>
@@ -27,6 +28,11 @@
             </table>
 
             <form class="compra-form" action="<?= base_url('ventas/comprar') ?>" method="post">
+                <?php if (session()->has('validation')) : ?>
+                    <div class="alerta-error">
+                        <?= session('validation')->listErrors() ?>
+                    </div>
+                <?php endif; ?>
                 <h3>Información de Envío y Pago</h3>
                 <?= csrf_field() ?>
                 <div>
@@ -37,8 +43,24 @@
                     </select>
                 </div>
                 <div>
-                    <label for="tarjeta">Número de Tarjeta:</label>
-                    <input type="text" name="tarjeta" id="tarjeta" required>
+                    <label for="tarjeta">Número de Tarjeta:
+                        <input type="text" name="tarjeta" id="tarjeta" maxlength="16" required>
+                        <?php if ($validation->getError('tarjeta')) { ?>
+                            <div class='error-form'>*
+                                <?= $error = $validation->getError('tarjeta'); ?>
+                            </div>
+                        <?php } ?>
+                    </label>
+                </div>
+                <div class="tarjeta-data">
+                    <div>
+                        <label for="fecha_vencimiento">Fecha de Vencimiento:</label>
+                        <input type="month" name="fecha_vencimiento" id="fecha_vencimiento" required>
+                    </div>
+                    <div>
+                        <label for="cvv">CVV</label>
+                        <input type="text" name="cvv" id="cvv" maxlength="3" required>
+                    </div>
                 </div>
                 <div>
                     <label for="direccion">Dirección:</label>
@@ -108,8 +130,31 @@
         document.getElementById('costo_total_hidden').value = costoTotal.toFixed(2);
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
+        var today = new Date();
+        var month = (today.getMonth() + 1).toString().padStart(2, '0'); // meses empiezan en 0
+        var year = today.getFullYear();
+        var minDate = year + '-' + month;
+
+        document.getElementById('fecha_vencimiento').setAttribute('min', minDate);
+    });
+
     document.getElementById('metodo_envio').addEventListener('change', calcularCostoTotal);
 
     // Calcula al cargar la página
     window.addEventListener('DOMContentLoaded', calcularCostoTotal);
+
+    document.getElementById('tarjeta').addEventListener('input', function(event) {
+        var input = event.target;
+        if (input.value.length > 16) {
+            input.value = input.value.slice(0, 16);
+        }
+    });
+
+    document.getElementById('cvv').addEventListener('input', function(event) {
+        var input = event.target;
+        if (input.value.length > 3) {
+            input.value = input.value.slice(0, 3);
+        }
+    });
 </script>
