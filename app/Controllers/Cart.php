@@ -70,19 +70,49 @@ class Cart extends BaseController
         $rowid = $request->getPost('rowid');
         $qty = $request->getPost('qty');
 
+        // Obtener el contenido del carrito
+        $cart = $this->cart->contents();
+
+        // Buscar el item en el carrito usando el rowid
+        $cartItem = null;
+        foreach ($cart as $item) {
+            if ($item['rowid'] == $rowid) {
+                $cartItem = $item;
+                break;
+            }
+        }
+
+        // Si no se encuentra el item en el carrito, redirigir con un error
+        if (!$cartItem) {
+            return redirect()->back()->withInput()->with('error', 'El artículo no se encontró en el carrito');
+        }
+
+        $productId = $cartItem['id'];
+
+        // Consultar el modelo de productos para obtener la cantidad de stock disponible
+        $model = new Products();
+        $product = $model->find($productId);
+        $stock = $product['cantidad'];  // Asegúrate de que 'stock' es el campo correcto en tu base de datos
+
+        // Verificar si la cantidad solicitada es mayor que la cantidad de stock disponible
+        if ($qty > $stock) {
+            return redirect()->back()->withInput()->with('error', 'La cantidad solicitada excede el stock disponible');
+        }
+
         // Si la cantidad es menor o igual a 0, eliminamos el producto del carrito
         if ($qty <= 0) {
             $this->cart->remove($rowid);
         } else {
             $data = array(
-                'rowid'   => $rowid,
-                'qty'     => $qty,
+                'rowid' => $rowid,
+                'qty'   => $qty,
             );
             $this->cart->update($data);
         }
 
         return redirect()->back()->withInput();
     }
+
 
     public function remove($rowid)
     {
