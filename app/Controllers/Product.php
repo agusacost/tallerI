@@ -59,6 +59,16 @@ class Product extends BaseController
     {
         $product = new Products();
 
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'nombre' => 'required|min_length[3]|max_length[255]',
+            'descripcion' => 'required|min_length[3]',
+            'id_categoria' => 'required|integer',
+            'cantidad' => 'required|integer|greater_than[0]',
+            'precio' => 'required|decimal',
+            'imagen' => 'uploaded[imagen]|is_image[imagen]',
+        ]);
+
         $data = [
             'nombre' => $this->request->getPost('nombre'),
             'descripcion' => $this->request->getPost('descripcion'),
@@ -67,17 +77,17 @@ class Product extends BaseController
             'precio' => $this->request->getPost('precio'),
             'activo' => 'SI',
         ];
+        if (!$validation->run($data)) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
 
-        //verificar existencia
+        // Verificar existencia de imagen
         $imagen = $this->request->getFile('imagen');
-
         if ($imagen && $imagen->isValid() && !$imagen->hasMoved()) {
             $newNameImagen = $imagen->getRandomName();
             $imagen->store('../../assets/img', $newNameImagen);
-
             $data['imagen'] = $newNameImagen;
         } elseif ($id) {
-
             $productId = $product->find($id);
             $data['imagen'] = $productId['imagen'];
         }
@@ -91,15 +101,15 @@ class Product extends BaseController
             return redirect()->to('/listar/pagina/1')->with('mensaje', 'Producto actualizado');
         } else {
             $productFound = $product->where('nombre', $data['nombre'])->first();
-
             if ($productFound) {
                 return redirect()->back()->with('error', 'Producto ya existe');
             } else {
                 $product->insert($data);
-                return redirect()->to('/listar/pagina/1')->with('mensaje', 'Producto actualizado con exito');
+                return redirect()->to('/listar/pagina/1')->with('mensaje', 'Producto agregado con éxito');
             }
         }
     }
+
     public function form($id = null)
     {
         $product = new Products();

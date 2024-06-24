@@ -15,6 +15,14 @@
             </div>
         <?php endif; ?>
 
+        <?php if (session()->has('errors')) : ?>
+            <div class="alert alert-danger">
+                <?php foreach (session('errors') as $error) : ?>
+                    <p><?= $error ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
 
         <form action="<?= isset($product) ? site_url('/producto/save/' . $product['id']) : site_url('/producto/save') ?>" method="post" enctype="multipart/form-data">
             <!-- nombre -->
