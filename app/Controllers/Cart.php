@@ -61,19 +61,17 @@ class Cart extends BaseController
         $totalItems = $this->cart->totalItems();
         session()->set('totalItems', $totalItems);
 
-        return redirect()->to(base_url('/productos/pagina/1'))->with('mensaje', 'Producto agregado correctamente');
+        return redirect()->back()->with('mensaje', 'Producto agregado correctamente');
     }
 
     public function update()
     {
         $request = \Config\Services::request();
         $rowid = $request->getPost('rowid');
-        $qty = $request->getPost('qty');
+        $newQty = $request->getPost('qty');
 
-        // Obtener el contenido del carrito
         $cart = $this->cart->contents();
 
-        // Buscar el item en el carrito usando el rowid
         $cartItem = null;
         foreach ($cart as $item) {
             if ($item['rowid'] == $rowid) {
@@ -82,46 +80,65 @@ class Cart extends BaseController
             }
         }
 
-        // Si no se encuentra el item en el carrito, redirigir con un error
+        // Si no se encuentra el item
         if (!$cartItem) {
             return redirect()->back()->withInput()->with('error', 'El artículo no se encontró en el carrito');
         }
-
         $productId = $cartItem['id'];
 
-        // Consultar el modelo de productos para obtener la cantidad de stock disponible
         $model = new Products();
         $product = $model->find($productId);
-        $stock = $product['cantidad'];  // Asegúrate de que 'stock' es el campo correcto en tu base de datos
+        $stock = $product['cantidad'];
 
-        // Verificar si la cantidad solicitada es mayor que la cantidad de stock disponible
-        if ($qty > $stock) {
+        if ($newQty > $stock) {
             return redirect()->back()->withInput()->with('error', 'La cantidad solicitada excede el stock disponible');
         }
 
-        // Si la cantidad es menor o igual a 0, eliminamos el producto del carrito
-        if ($qty <= 0) {
+        $totalItems = session()->get('totalItems');
+        $currentQty = $cartItem['qty'];
+
+        if ($newQty <= 0) {
+            // Eliminar el producto del carrito y restar la cantidad actual del total de items
             $this->cart->remove($rowid);
+            $totalItems -= $currentQty;
         } else {
+            $qtyDifference = $newQty - $currentQty;
+
             $data = array(
                 'rowid' => $rowid,
-                'qty'   => $qty,
+                'qty'   => $newQty,
             );
             $this->cart->update($data);
+
+            $totalItems += $qtyDifference;
         }
 
-        return redirect()->back()->withInput();
+        // Actualizar la sesión con el nuevo total de items
+        session()->set('totalItems', $totalItems);
+
+        return redirect()->back()->withInput()->with('mensaje', 'Carrito actualizado correctamente');
     }
+
 
 
     public function remove($rowid)
     {
+        $cartContent = $this->cart->contents();
+        $totalItems = session()->get('totalItems');
         if ($rowid === "all") {
             $this->cart->destroy();
+            $totalItems = 0;
         } else {
+            $qtyDelete = 0;
+            foreach ($cartContent as $item) {
+                if ($item['rowid'] == $rowid) {
+                    $qtyDelete = $item['qty'];
+                    break;
+                }
+            }
             $this->cart->remove($rowid);
+            $totalItems -= $qtyDelete;
         }
-        $totalItems = session()->get('totalItems') - 1;
         session()->set('totalItems', $totalItems);
 
         return redirect()->back()->withInput();
