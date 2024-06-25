@@ -12,11 +12,12 @@
   <div class="footer-bottom">
     <ul>
       <li><a href="<?= base_url('/about') ?>">Quiénes somos?</a></li>
-      <li><a href="<?=base_url('/frequentquestions')?>">Preguntas frecuentes</a></li>
-      <li><a href="<?=base_url('/termsandconditions')?>">Términos y condiciones</a></li>
-      <li><a href="<?=base_url('/politics')?>">Políticas de Privacidad</a></li>
-      <li><a href="<?=base_url('/commerce')?>">Comercialización</a></li>
-      <li><a href="<?= base_url()?>">@2024 Keepgreen</a></li>
+      <li><a href="<?= base_url('/frequentquestions') ?>">Preguntas frecuentes</a></li>
+      <li><a href="<?= base_url('/termsandconditions') ?>">Términos y condiciones</a></li>
+      <li><a href="<?= base_url('/politics') ?>">Políticas de Privacidad</a></li>
+      <li><a href="<?= base_url('/commerce') ?>">Comercialización</a></li>
+      <li><a href="<?= base_url('/contact') ?>">Contacto</a></li>
+      <li><a href="<?= base_url() ?>">@2024 Keepgreen</a></li>
     </ul>
   </div>
 </footer>
