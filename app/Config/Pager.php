@@ -28,6 +28,7 @@ class Pager extends BaseConfig
         'my_pagination2' => 'App\Views\Pager\my_pagination2',
         'my_pagination3' => 'App\Views\Pager\my_pagination3',
         'user_pagination' => 'App\Views\Pager\user_pagination',
+        'ventasUser_pagination' => 'App\Views\Pager\ventasUser_pagination',
     ];
 
     /**

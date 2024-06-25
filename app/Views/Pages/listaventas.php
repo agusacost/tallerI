@@ -44,9 +44,15 @@
         </tr>
     <?php endforeach; ?>
     </table>
-    <div class="pagination-links">
-        <?= $pager->links('group1', 'my_pagination2') ?>
-    </div>
+    <?php if ($session->get('id_perfil') == 1) : ?>
+        <div class="pagination-links">
+            <?= $pager->links('group1', 'my_pagination2') ?>
+        </div>
+    <?php else : ?>
+        <div class="pagination-links">
+            <?= $pager->links('group1', 'ventasUser_pagination') ?>
+        </div>
+    <?php endif; ?>
     </div>
     </div>
 </main>
