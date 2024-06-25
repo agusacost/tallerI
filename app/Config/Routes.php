@@ -57,7 +57,7 @@ $routes->get('/logout', 'Login::logout');
 //productos
 // $routes->get('/productos', 'Product::publicProducts'); //Cards todos los productos
 $routes->get('/productos/pagina/(:num)', 'Product::publicProducts/$1'); //Cards todos los productos
-$routes->post('/productos/filtrar/(:num)', 'Product::filtrarProductos/$1'); //Cards con filtro de categoria
+$routes->get('/productos/filtrar/(:num)', 'Product::filtrarProductos/$1'); //Cards con filtro de categoria
 $routes->get('/listar/pagina/(:num)', 'Product::index/$1', ['filter' => 'authAdmin']); //listar todos los productos
 $routes->get('/producto', 'Product::form', ['filter' => 'authAdmin']); //form para crear
 $routes->post('/producto/save', 'Product::save', ['filter' => 'authAdmin']); //crea producto 
@@ -84,7 +84,7 @@ $routes->get('/borrar_consulta/(:num)', 'Consulta::borrarConsulta/$1', ['filter'
 
 //ventas
 $routes->get('/ventas_list/pagina/(:num)', 'Ventas::index/$1',  ['filter' => 'authAdmin']);
-$routes->get('/ventas/usuario/(:num)', 'Ventas::ventasUser/$1',  ['filter' => 'authUser']);
+$routes->get('/ventas/usuario/(:num)/(:num)', 'Ventas::ventasUser/$1/$2',  ['filter' => 'authUser']);
 $routes->get('ventas/comprobante/(:num)', 'Ventas::comprobante/$1', ['filter' => 'authUser']);
 
 //envios
