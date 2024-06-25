@@ -13,15 +13,15 @@
   <!-- categories -->
   <h1 class="text-center">Categorías</h1>
   <div class="top-categories">
-    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-cereales">
+    <a href="<?= base_url('/productos/filtrar/1?id_categoria=3') ?>" class="card-category category-cereales">
       <p>Cereales</p>
       <span>Ver mas</span>
     </a>
-    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-frutos-secos">
+    <a href="<?= base_url('/productos/filtrar/1?id_categoria=1') ?>" class="card-category category-frutos-secos">
       <p>Frutos Secos</p>
       <span>Ver mas</span>
     </a>
-    <a href="<?= base_url('/productos/pagina/1') ?>" class="card-category category-suplementos">
+    <a href="<?= base_url('/productos/filtrar/1?id_categoria=2') ?>" class="card-category category-suplementos">
       <p>Suplementos</p>
       <span>Ver mas</span>
     </a>
@@ -73,7 +73,11 @@
             <div class="pago">
               <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
             </div>
-            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php if ($session->get('isLoggedIn')) : ?>
+              <a href="<?= base_url('/productos/pagina/1') ?>" class="btn-comprar">Ver más</a>
+            <?php else : ?>
+              <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php endif ?>
           </div>
         </div>
       </div>
@@ -88,7 +92,11 @@
             <div class="pago">
               <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
             </div>
-            <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php if ($session->get('isLoggedIn')) : ?>
+              <a href="<?= base_url('/productos/pagina/1') ?>" class="btn-comprar">Ver más</a>
+            <?php else : ?>
+              <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
+            <?php endif ?>
           </div>
         </div>
       </div>
@@ -104,7 +112,7 @@
               <p><i class="fa-regular fa-credit-card"></i>Pagalo como quieras!</p>
             </div>
             <?php if ($session->get('isLoggedIn')) : ?>
-              <a href="<?= base_url('/productos') ?>" class="btn-comprar">Comprar</a>
+              <a href="<?= base_url('/productos/pagina/1') ?>" class="btn-comprar">Ver más</a>
             <?php else : ?>
               <a href="<?= base_url('/login') ?>" class="btn-comprar">Comprar</a>
             <?php endif ?>
