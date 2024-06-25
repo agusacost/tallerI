@@ -40,7 +40,7 @@ class Product extends BaseController
     {
         $product = new Products();
         $perPage = 9;
-        $categoria = $this->request->getPost('id_categoria');
+        $categoria = $this->request->getGet('id_categoria');
 
         if ($categoria) {
             $datos['product'] = $product->where('id_categoria', $categoria)->where('activo', 'SI')->paginate($perPage, 'group1', $page);
