@@ -60,14 +60,20 @@ class Product extends BaseController
         $product = new Products();
 
         $validation = \Config\Services::validation();
-        $validation->setRules([
+        $rules = [
             'nombre' => 'required|min_length[3]|max_length[255]',
             'descripcion' => 'required|min_length[3]',
             'id_categoria' => 'required|integer',
             'cantidad' => 'required|integer|greater_than[0]',
             'precio' => 'required|decimal',
-            'imagen' => 'uploaded[imagen]|is_image[imagen]',
-        ]);
+        ];
+
+        // Si no hay ID (nuevo producto) o se ha subido una nueva imagen, agregar reglas de validación para la imagen
+        if ($id === null || $this->request->getFile('imagen')->isValid()) {
+            $rules['imagen'] = 'uploaded[imagen]|is_image[imagen]';
+        }
+
+        $validation->setRules($rules);
 
         $data = [
             'nombre' => $this->request->getPost('nombre'),
@@ -77,6 +83,7 @@ class Product extends BaseController
             'precio' => $this->request->getPost('precio'),
             'activo' => 'SI',
         ];
+
         if (!$validation->run($data)) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
