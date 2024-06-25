@@ -45,6 +45,7 @@ class Ventas extends BaseController
         $perPage = 9;
         $datos['ventas'] = $ventas->where('usuario_id', $id)->orderBy('id_venta', 'ASC')->paginate($perPage, 'group1', $page);
         $datos['pager'] = $ventas->pager;
+        $datos['id'] = $id;
         $usuario = new User();
         $tipoPago = new TipoPago();
 
