@@ -14,12 +14,12 @@
             <?php endif; ?>
             <!--Filtros: TODO Centrar -->
             <div class="productoFiltro">
-                <form action="<?= base_url('productos/filtrar/1') ?>" method="post">
+                <form action="<?= base_url('productos/filtrar/1') ?>" method="get">
                     <select name="id_categoria">
                         <option value="">Todos</option>
-                        <option value="3" <?php if (isset($_POST['id_categoria']) && $_POST['id_categoria'] == '3') echo 'selected'; ?>>Cereales</option>
-                        <option value="1" <?php if (isset($_POST['id_categoria']) && $_POST['id_categoria'] == '1') echo 'selected'; ?>>Frutos secos</option>
-                        <option value="2" <?php if (isset($_POST['id_categoria']) && $_POST['id_categoria'] == '2') echo 'selected'; ?>>Suplementos</option>
+                        <option value="3" <?php if (isset($_GET['id_categoria']) && $_GET['id_categoria'] == '3') echo 'selected'; ?>>Cereales</option>
+                        <option value="1" <?php if (isset($_GET['id_categoria']) && $_GET['id_categoria'] == '1') echo 'selected'; ?>>Frutos secos</option>
+                        <option value="2" <?php if (isset($_GET['id_categoria']) && $_GET['id_categoria'] == '2') echo 'selected'; ?>>Suplementos</option>
                     </select>
                     <button type="submit" class="btn-filtrar">Filtrar</button>
                 </form>
