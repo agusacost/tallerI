@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-06-2024 a las 00:49:49
+-- Tiempo de generación: 28-06-2024 a las 15:46:50
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.15
 
@@ -61,7 +61,11 @@ CREATE TABLE `consultas` (
 INSERT INTO `consultas` (`id_consulta`, `fullname`, `email`, `message`) VALUES
 (2, 'Agustin Acosta', 'agustin@test.com', 'Necesito comprar con urgencia!'),
 (3, 'jon snow', 'jon@snow.com', 'hola'),
-(4, 'Martin pescador', 'martin@test.com', 'Tengo dudas sobre mi envio. Como puedo hacer un reembolso?');
+(4, 'Martin pescador', 'martin@test.com', 'Tengo dudas sobre mi envio. Como puedo hacer un reembolso?'),
+(5, 'agustin', 'agustin@test.com', 'tengo una consulta sobre el reembolso de un producto'),
+(6, 'Agustin Acosta', 'agustin@test.com', 'Mensaje probando las validaciones de la consulta'),
+(7, 'Agustin Acosta', 'agustin@test.com', 'Vuelvo a probar el formulario de consulta'),
+(8, 'Agustin Acosta', 'agustin@test.com', 'Probando la consulta desde el usuario tipo user');
 
 -- --------------------------------------------------------
 
@@ -89,7 +93,17 @@ INSERT INTO `Envio_detalle` (`id_envio`, `venta_id`, `direccion`, `ciudad`, `pro
 (16, 19, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-15 20:42:11'),
 (17, 20, 'Entre rios 446', 'Corrientes', 'Corrientes', 'w3400', '1', '1750.00', '2024-06-15 21:45:17'),
 (18, 21, 'Santiago del estero 822', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-15 21:47:52'),
-(19, 22, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-15 22:43:15');
+(19, 22, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-15 22:43:15'),
+(20, 23, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-20 19:21:12'),
+(21, 24, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-20 19:24:10'),
+(22, 25, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-20 19:24:35'),
+(23, 26, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-20 19:25:22'),
+(24, 27, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-22 21:18:49'),
+(25, 28, 'Moreno 445', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-22 21:30:58'),
+(26, 29, 'Pago Largo 234', 'Corrientes', 'Corrientes', '3400', '2', '3850.00', '2024-06-25 14:52:10'),
+(27, 30, 'Pago Largo 234', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-25 15:06:41'),
+(28, 31, 'Chaco 272', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-25 17:59:42'),
+(29, 32, 'Rivadavia 323', 'Corrientes', 'Corrientes', '3400', '1', '1750.00', '2024-06-28 13:13:35');
 
 -- --------------------------------------------------------
 
@@ -133,15 +147,17 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `nombre`, `descripcion`, `imagen`, `id_categoria`, `cantidad`, `precio`, `activo`) VALUES
 (8, 'Almendras', '200gr', '1716413284_c9bed0a80e601146ec71.jpeg', 1, 99, '1250.00', 'SI'),
-(9, 'Almohaditas', '100gr', '1716416400_85336797a6fbf8a0d67c.jpg', 3, 100, '600.00', 'SI'),
-(10, 'Arroz Integral', '500gr', '1717623544_0ee233cdd189d85db335.jpg', 3, 100, '2006.99', 'SI'),
-(12, 'Calcio-magnesio-zinc', '60 pastillas', '1717623865_31724fff2357624e143f.png', 2, 48, '12483.00', 'SI'),
-(13, 'Multi-Collagen', '30 tabletas', '1717623929_9bc37d28596a5b7887d6.png', 2, 47, '15547.06', 'SI'),
+(9, 'Almohaditas', '100gr', '1716416400_85336797a6fbf8a0d67c.jpg', 3, 94, '600.00', 'SI'),
+(10, 'Arroz Integral', '500gr', '1717623544_0ee233cdd189d85db335.jpg', 3, 96, '2006.99', 'SI'),
+(12, 'Calcio-magnesio-zinc', '60 pastillas', '1717623865_31724fff2357624e143f.png', 2, 15, '12483.00', 'SI'),
+(13, 'Multi-Collagen', '30 tabletas', '1717623929_9bc37d28596a5b7887d6.png', 2, 45, '15547.06', 'SI'),
 (14, 'ONE Multiple Vitamins', '30 tabletas', '1717624028_d84749f1a0ae54aecf80.png', 2, 48, '13340.00', 'SI'),
 (15, 'Vitamina-d3', '6522', '1717624056_85cbc767314a57b57f61.png', 2, 100, '6522.00', 'SI'),
-(16, 'Keto Diet', '30 tabletas', '1717624109_5aac2655c3090d8651da.png', 2, 49, '16402.00', 'SI'),
+(16, 'Keto Diet', '30 tabletas', '1717624109_5aac2655c3090d8651da.png', 2, 47, '16402.00', 'SI'),
 (17, 'Natural Life Move', '30 tabletas', '1717624166_b5bc2cc1be3c2a19543b.png', 2, 48, '15219.00', 'SI'),
-(18, 'Nueces ', '200gr', '1718232527_cec24dc858244d46d058.png', 1, 98, '2626.00', 'SI');
+(18, 'Nueces ', '200gr', '1718232527_cec24dc858244d46d058.png', 1, 98, '2626.00', 'SI'),
+(21, 'Pasas de uva', '200gr', '1719267167_f3cab8636e0f857f9583.jpg', 1, 50, '1789.95', 'SI'),
+(22, 'Cereal de Maiz', '160gr', '1719339218_9f4b0184c42fd370a8f1.jpg', 3, 100, '817.64', 'SI');
 
 -- --------------------------------------------------------
 
@@ -185,15 +201,15 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `surname`, `email`, `password`, `id_perfil`, `baja`) VALUES
 (21, 'Agustin', 'Acosta', 'admin@test.com', '$2y$10$xrRPltjZHk28zJBib3kZwe3qaaXYsx9QC./3ZMOOlrS75rZVmAEtC', 1, 'NO'),
-(22, 'Susana', 'Benitez', 'su@test.com', '$2y$10$8sX9cj0m0AjmJQjbWvyqiOrzpoToH0wpcib/qrYLI30Z80B4FwHii', 2, 'NO'),
-(23, 'aldo', 'Agazzani', 'aldo@test.com', '$2y$10$IJ2WFr0e5yX7TzzwYHjVTO27qIkldz4uSGZ4ab3mkVoKCxxkMkay.', 2, 'SI'),
-(24, 'Agustin', 'Acosta', 'agustin@test.com', '$2y$10$DKaB7As4nCYphD3o06u74OBQHze8EmfWIM0UReksI4LYqLyuGZx02', 2, 'SI'),
+(22, 'Susana Mariel', 'Benitez', 'su@test.com', '$2y$10$8sX9cj0m0AjmJQjbWvyqiOrzpoToH0wpcib/qrYLI30Z80B4FwHii', 2, 'NO'),
+(23, 'Aldito', 'Agazzani ', 'aldo@test.com', '$2y$10$hwsPngN/ETixh1tGnb3IXOyNcSosryejsCWPsx4yBVzbV9QvDRMXi', 2, 'NO'),
+(24, 'Agustin', 'Acosta', 'agustin@test.com', '$2y$10$DKaB7As4nCYphD3o06u74OBQHze8EmfWIM0UReksI4LYqLyuGZx02', 1, 'NO'),
 (25, 'Jorge', 'Ramos', 'jorge@test.com', '$2y$10$drgbUU4V8vWJbgOch/T38etjv4w0xMq/MW/eEk892ZKaPnJ7UQ1sq', 2, 'NO'),
-(26, 'Colo', 'Lagarto', 'lagarto@test.com', '$2y$10$AG0Buw0DEe3hkWgcVgd9r.NoLjfygP9xE5Xthwl658RzfBOPX9X2q', 2, 'NO'),
+(26, 'Colorado', 'Lagarto', 'lagarto@test.com', '$2y$10$AG0Buw0DEe3hkWgcVgd9r.NoLjfygP9xE5Xthwl658RzfBOPX9X2q', 2, 'NO'),
 (27, 'Javier', 'Milei', 'milei@lla.com', '$2y$10$uEIdihL2rD.PyYXoG7INCuzQkycXWd2cXXacPS9d2e80UiA3fpdxW', 2, 'NO'),
 (28, 'Victoria', 'Villarruel', 'vickyvillarruel@test.com', '$2y$10$p6lgj8LWmZqUR1x.s7v.o.srnS0ozbrJ6JdJ8TW1sxrhvLqlxF.a2', 2, 'NO'),
-(29, 'Jhon', 'Snow', 'jhonnieve@test.com', '$2y$10$IW1RGxPoxtRvRTpi6OcSCuAT2rrtxwR2QS.tt650zXBLdfKX6GATa', 2, 'NO'),
-(30, 'Flavio', 'Mendoza', 'flavio@test.com', '$2y$10$EZNr7HEVhhRmYOliVq4eLObyo04dWNvw3dihSEpts7pEMCEI.KQXi', 2, 'NO'),
+(29, 'Jhon', 'Snow', 'jhonnieve@test.com', '$2y$10$IW1RGxPoxtRvRTpi6OcSCuAT2rrtxwR2QS.tt650zXBLdfKX6GATa', 2, 'SI'),
+(30, 'Flavio', 'Mendoza', 'flavio@test.com', '$2y$10$EZNr7HEVhhRmYOliVq4eLObyo04dWNvw3dihSEpts7pEMCEI.KQXi', 2, 'SI'),
 (31, 'Anibal', 'Pachano', 'pachano@test.com', '$2y$10$XmqmZsMijO3Cv7eD7lr9puyzEbP9Tnpf.R6k0G.FUDPt1TZpMZwLK', 2, 'NO');
 
 -- --------------------------------------------------------
@@ -219,7 +235,17 @@ INSERT INTO `Ventas_cabecera` (`id_venta`, `fecha`, `usuario_id`, `total_venta`,
 (19, '2024-06-15', 23, '5252.00', 1, '450987654021'),
 (20, '2024-06-15', 31, '30766.06', 1, '31231312312312'),
 (21, '2024-06-15', 23, '27702.00', 1, '25098128381231'),
-(22, '2024-06-15', 22, '1250.00', 1, '459120312312');
+(22, '2024-06-15', 22, '1250.00', 1, '459120312312'),
+(23, '2024-06-20', 23, '600.00', 1, '123123'),
+(24, '2024-06-20', 23, '2006.99', 1, '12312313'),
+(25, '2024-06-20', 23, '2006.99', 1, '123'),
+(26, '2024-06-20', 23, '2006.99', 1, '1'),
+(27, '2024-06-22', 23, '600.00', 1, '1234567891111111'),
+(28, '2024-06-22', 23, '15547.06', 1, '1111111111111111'),
+(29, '2024-06-25', 23, '33404.00', 2, '7777777777777777'),
+(30, '2024-06-25', 23, '17337.01', 2, '7777777777777777'),
+(31, '2024-06-25', 23, '4779.90', 1, '6767676767645345'),
+(32, '2024-06-28', 23, '2606.99', 1, '1222321111111233');
 
 -- --------------------------------------------------------
 
@@ -245,7 +271,21 @@ INSERT INTO `Ventas_detalle` (`id_detalle`, `venta_id`, `producto_id`, `cantidad
 (22, 20, 17, 1, '15219.00'),
 (23, 21, 12, 1, '12483.00'),
 (24, 21, 17, 1, '15219.00'),
-(25, 22, 8, 1, '1250.00');
+(25, 22, 8, 1, '1250.00'),
+(26, 23, 9, 1, '600.00'),
+(27, 24, 10, 1, '2006.99'),
+(28, 25, 10, 1, '2006.99'),
+(29, 26, 10, 1, '2006.99'),
+(30, 27, 9, 1, '600.00'),
+(31, 28, 13, 1, '15547.06'),
+(32, 29, 9, 1, '600.00'),
+(33, 29, 16, 2, '16402.00'),
+(34, 30, 21, 1, '1789.95'),
+(35, 30, 13, 1, '15547.06'),
+(36, 31, 9, 2, '600.00'),
+(37, 31, 21, 2, '1789.95'),
+(38, 32, 10, 1, '2006.99'),
+(39, 32, 9, 1, '600.00');
 
 --
 -- Índices para tablas volcadas
@@ -325,19 +365,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_consulta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `Envio_detalle`
 --
 ALTER TABLE `Envio_detalle`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `Tipo_Pago`
@@ -355,13 +395,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `Ventas_cabecera`
 --
 ALTER TABLE `Ventas_cabecera`
-  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `Ventas_detalle`
 --
 ALTER TABLE `Ventas_detalle`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas

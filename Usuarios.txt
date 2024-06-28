@@ -5,3 +5,6 @@ pass: 123456
 Usuario comprador:
 correo: su@test.com
 pass: 123456
+
+correo: aldo@test.com
+pass: 123456
